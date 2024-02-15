@@ -37,13 +37,15 @@ ext{
 //java 8 backwards compatibility flag。
 
 dependencies{
-//    implementation(files("C:/Users/Administrator/Desktop/Mindustry-CN-ARC-Desktop-30505.jar"))
-    compileOnly "com.github.Anuken.Arc:arc-core:$mindustryVersion"
-    compileOnly "com.github.Anuken.Mindustry:core:$mindustryVersion"
+    compileOnly ("com.github.Anuken.Arc:arc-core:$mindustryVersion")
+    compileOnly ("com.github.Anuken.Mindustry:core:$mindustryVersion")  {
+        exclude group: 'com.github.Anuken.Arc', module: 'flabel'
+    }
 
-    annotationProcessor "com.github.Anuken:jabel:$jabelVersion"
+    annotationProcessor ("com.github.Anuken:jabel:$jabelVersion")
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version"
     implementation 'javax.persistence:javax.persistence-api:2.2'
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core:1.5.0'
 }
 
 //force arc version
