@@ -1,5 +1,6 @@
 function getDill(x,y) {
-
+const xi = x - 2;
+const yi = y - 2
 }
 
  电浆融井 = extend(GenericCrafter,"电浆融井",{
