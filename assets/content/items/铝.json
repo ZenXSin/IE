@@ -1,0 +1,12 @@
+{
+	"name": "铝",
+	"hardness": 3,
+	"cost": 5,
+	"color": "CACEE4FF",
+	"healthScaling": 1.1,
+	"alwaysUnlocked": false,
+	"radioactivity": 0,
+	"explosiveness": 0,
+	"flammability": 0,
+	"research": "thorium"
+}

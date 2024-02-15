@@ -1,0 +1,120 @@
+{
+    "name": "电浆转存器",
+    "description": "电浆转存器，顾名思义，可以将反应堆里的部分电浆转出以使用。一条边只能连接一个反应堆，需要冷却液来冷却，消耗的冷却液随电浆提取速度上升而上升。[red]外壁损坏会造成失磁导致电浆泄漏，导致大面积电网瘫痪。",
+    "size": 3,
+    "health": 1000,
+    "liquidCapacity": 100,
+    "hasPower": true,
+    "destroyBullet": {
+        "type": "BasicBulletType",
+        "width": 30,
+        "height": 30,
+        "hitShake": 6,
+        "damage": 80,
+        "sprite": "circle-bullet",
+        "shrinkY": 0,
+        "speed": 0,
+        "lifetime": 90,
+        "collides": false,
+        "despawnEffect": {
+            "type": "WaveEffect",
+            "lifetime": 23,
+            "sizeFrom": 4,
+            "sizeTo": 160,
+            "strokeFrom": 6,
+            "strokeTo": 0,
+            "colorFrom": "75E6D3E2",
+            "colorTo": "75E6D3E2"
+        },
+        "hitEffect": "none",
+        "frontColor": "FFFFFF",
+        "backColor": "75E6D3E2",
+        "shootEffect": "none",
+        "smokeEffect": "none",
+        "fragLifeMin": 1,
+        "fragBullets": 50,
+        "fragBullet": {
+            "type": "BasicBulletType",
+            "height": 15,
+            "width": 8,
+            "damage": -20,
+            "shrinkY": 0,
+            "absorbable": false,
+            "homingPower": 0.08,
+            "homingRange": 300,
+            "speed": 5,
+            "lifetime": 300,
+            "collidesTeam": true,
+            "status": "melting",
+            "statusDuration": 600,
+            "frontColor": "75E6D3E2",
+            "backColor": "75E6D3E2",
+            "trailLength": 6,
+            "trailWidth": 2,
+            "trailColor": "75E6D3E2",
+            "shootEffect": "none",
+            "smokeEffect": "none",
+            "hitSound": "none",
+            "despawnEffect": {
+                "type": "WaveEffect",
+                "lifetime": 13,
+                "sizeFrom": 2,
+                "sizeTo": 15,
+                "strokeFrom": 6,
+                "strokeTo": 0,
+                "colorFrom": "75E6D3E2",
+                "colorTo": "75E6D3E2"
+            },
+            "hitEffect": {
+                "type": "WaveEffect",
+                "lifetime": 13,
+                "sizeFrom": 2,
+                "sizeTo": 15,
+                "strokeFrom": 6,
+                "strokeTo": 0,
+                "colorFrom": "75E6D3E2",
+                "colorTo": "75E6D3E2"
+            }
+        }
+    },
+    "requirements": [
+        "silicon/80",
+        "graphite/60",
+        "copper/120",
+        "phase-fabric/60",
+        "surge-alloy/120",
+        "metaglass/40",
+        "plastanium/80"
+    ],
+    "outputLiquid": {
+        "liquid": "电浆流",
+        "amount": 0.5
+    },
+    "consumes": {
+        "power": 6,
+        "liquid": "cryofluid/1"
+    },
+    "drawer": {
+        "type": "DrawMulti",
+        "drawers": [
+            {
+                "type": "DrawRegion",
+                "suffix": "-bottom"
+            },
+            {
+                "type": "DrawLiquidTile",
+                "drawLiquid": "电浆流"
+            },
+            "DrawDefault",
+            {
+				"type": "DrawGlowRegion",//贴图后缀∶glow
+				"alpha": 0.8,//透明度
+				"glowScale": 3.53429173,//频率，1.5π一秒
+				"color": "800000FF"//颜色
+			}
+        ]
+    },
+    "updateEffect": "shieldBreak",
+    "category": "crafting",
+    "research": "impact-reactor"
+}

@@ -1,0 +1,66 @@
+{
+    "name": "电浆融井",
+    "description": "使用电浆直接融化矿物，可以快速开采基础金属矿",
+    "size": 5,
+    "health": 2000,
+    "hasPower": true,
+    "hasItems": true,
+    "hasLiquids": true,
+    "update": true,
+    "liquidCapacity": 100,
+    "requirements": [
+        "铝/180",
+        "titanium/260",
+        "silicon/160",
+        "surge-alloy/180",
+        "metaglass/220",
+        "plastanium/200",
+        "phase-fabric/180"
+    ],
+    "drawer": {
+        "type": "DrawMulti",
+        "drawers": [
+            {
+                "type": "DrawRegion",
+                "suffix": "-bottom"
+            },
+            {
+                "type": "DrawLiquidTile",
+                "drawLiquid": "电浆流"
+            },
+            "DrawDefault",
+            	{
+				"type": "DrawGlowRegion",//贴图后缀∶glow
+				"alpha": 1,//透明度
+				"glowScale": 3.53429173,//频率，1.5π一秒
+				"color": "75E6D3E2"//颜色
+			}
+        ]
+    },
+    "destroyBullet": {
+        "type": "PointBulletType",
+        "hitShake": 2,
+        "splashDamageRadius": 25,
+        "splashDamage": 30,
+        "status": "unmoving",
+        "statusDuration": 30,
+        "speed": 0,
+        "lifetime": 2,
+        "collides": false,
+        "despawnEffect": {
+            "type": "WaveEffect",
+            "lifetime": 10,
+            "sizeFrom": 0,
+            "sizeTo": 30,
+            "strokeFrom": 3,
+            "strokeTo": 0,
+            "colorFrom": "ffffff",
+            "colorTo": "ffffff"
+        },
+        "hitEffect": "none"
+    },
+    "consumes": {
+        "power": 8,
+        "liquid": "电浆流/0.5"
+    }
+}
