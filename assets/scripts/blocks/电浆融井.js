@@ -11,7 +11,7 @@ function getOre(x, y) {
     let n = 0;
     const str = ["copper", "lead", "titanium", "scrap", "工业拓展 - 铝", "beryllium", "tungsten", "sand"];
     for (let i = 0; i < xy.length; i++) {
-        const tile = Vars.world.tile(xy[i][0], xy[i][01]);
+        const tile = Vars.world.tile(xy[i][0], xy[i][1]);
         if (tile.block() instanceof OreBlock && str.includes(tile.block().name)) {
             let nt = false;
             for (let i = 0; i < ore.length; i++) {
