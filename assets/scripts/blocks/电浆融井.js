@@ -1,4 +1,4 @@
-function getDill(x,y) {
+function getDrill(x,y) {
 const xi = x - 2;
 const yi = y - 2
 }

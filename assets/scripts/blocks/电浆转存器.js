@@ -35,11 +35,13 @@ function getpower(x, y, sideLength) {
                     xy[io] = Vars.world.tile(i, j);
                     io++;
                 }
-            } catch (e) {}
+            } catch (e) {
+            }
         }
     }
     return xy;
 }
+
 const 电浆转存器 = extend(GenericCrafter, "电浆转存器", {
     drawPlace(x, y, rotation, valid) {
         Drawf.dashSquare(Color.white, x * 8, y * 8, 5 * 8);
@@ -81,7 +83,8 @@ const 电浆转存器 = extend(GenericCrafter, "电浆转存器", {
                     } else {
                         ip[i].build.enabled = false;
                     }
-                } catch (e) {}
+                } catch (e) {
+                }
             }
             this.super$killed();
         }

@@ -13,6 +13,10 @@ const 磁约束容器 = extend(LiquidRouter,"磁约束容器",{});
                     }
                 } catch (e) {}
             }
+        },
+        setStats() {
+            this.super$setStats();
+            this.stats.add(new Stat("修复立场"), 0);
         }
     });
 });

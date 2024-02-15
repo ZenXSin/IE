@@ -2,7 +2,7 @@
     displayName: "IE",
     author: "ZenXSin",
     description: "都是js与kotlin狠活，感谢@pnk mod 的贴图",
-    version: "0.06.0 BATE",
+    version: "0.06.0 BETA",
     minGameVersion: 146,
     main:IE,
     kotlin: true
