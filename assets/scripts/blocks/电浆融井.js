@@ -1,4 +1,8 @@
-const 电浆融井 = extend(GenericCrafter,"电浆融井",{
+function getDill(x,y) {
+
+}
+
+ 电浆融井 = extend(GenericCrafter,"电浆融井",{
 drawPlace(x, y, rotation, valid) {
         
     }

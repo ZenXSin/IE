@@ -10,9 +10,9 @@ class IE : Mod() {
     override fun loadContent() {
         super.loadContent()
         Events.on(WorldLoadEvent::class.java) {
-            ok = true
+            ok = false
             coroutineScope.launch {
-                while (true) {
+                while (ok) {
                     try {
                         getLiquid()
                     } catch (_: Exception) { }

@@ -76,7 +76,7 @@ const 电浆转存器 = extend(GenericCrafter, "电浆转存器", {
             var ip = getpower(this.tile.x, this.tile.y, 100);
             for (let i = 0; i < ip.length; i++) {
                 try {
-                    if (Math.random() < 0.5) {
+                    if (Math.floor(Math.random() * (1 + 1)) === 0) {
                         ip[i].kill();
                     } else {
                         ip[i].build.enabled = false;
