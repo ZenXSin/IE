@@ -6,31 +6,32 @@ function getDrill(x, y) {
 }
 
 function getOre(x, y) {
-    const xy = getDrill(x, y)
-    let ore = ["null"]
-    let n = 0
-    const str = [copper, lead, titanium, scrap, 工业拓展 - 铝, beryllium, tungsten]
+    const xy = getDrill(x, y);
+    let ore = ["null"];
+    let n = 0;
+    const str = ["copper", "lead", "titanium", "scrap", "工业拓展 - 铝", "beryllium", "tungsten", "sand"];
     for (let i = 0; i < xy.length; i++) {
-        const tile = Vars.world.tile(xy[i][0], xy[i][01])
+        const tile = Vars.world.tile(xy[i][0], xy[i][01]);
         if (tile.block() instanceof OreBlock && str.includes(tile.block().name)) {
-            let n = false
+            let nt = false;
             for (let i = 0; i < ore.length; i++) {
                 if (ore[i][0] == tile.block()) {
-                    ore[i][1]++
-                    n = true
+                    ore[i][1]++;
+                    nt = true;
                 }
             }
-            if (!n) {
-
+            if (!nt) {
+                ore[n] = [tile.block(), 1];
             }
         }
     }
+    return ore;
 }
 
 //copper，lead，titanium，scrap，工业拓展-铝，beryllium，tungsten
 const 电浆融井 = extend(GenericCrafter, "电浆融井", {
     drawPlace(x, y, rotation, valid) {
-        this.super$drawPlace(x, y, rotation, valid)
+        this.super$drawPlace(x, y, rotation, valid);
 
     }, canPlaceOn(tile, team, rotation) {
         return !getIR(tile.x, tile.y)
