@@ -41,7 +41,6 @@ dependencies{
     compileOnly ("com.github.Anuken.Mindustry:core:$mindustryVersion")  {
         exclude group: 'com.github.Anuken.Arc', module: 'flabel'
     }
-
     annotationProcessor ("com.github.Anuken:jabel:$jabelVersion")
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version"
     implementation 'javax.persistence:javax.persistence-api:2.2'
