@@ -5,6 +5,7 @@
     "health": 1000,
     "liquidCapacity": 100,
     "hasPower": true,
+    "hasItems": false,
     "destroyBullet": {
         "type": "BasicBulletType",
         "width": 30,

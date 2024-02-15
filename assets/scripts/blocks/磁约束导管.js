@@ -1,6 +1,8 @@
+//by zxs(转载勿删
 const 磁约束导管 = extend(ArmoredConduit, "磁约束导管", {
     setStats() {
         this.super$setStats();
+        this.stats.add(new Stat("修复立场", new StatCat("能力")), xf());
     }
 });
 磁约束导管.buildType = prov(() => {
@@ -20,3 +22,9 @@ const 磁约束导管 = extend(ArmoredConduit, "磁约束导管", {
         }
     });
 });
+function xf() {
+    return function(table) {
+        table.add("每Tick修复5%损失血量")
+        table.row();
+    };
+}

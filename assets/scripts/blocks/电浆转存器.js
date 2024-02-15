@@ -1,3 +1,4 @@
+//by zxs(转载勿删
 function ipo(x, y) {
     return [[x + 2, y], [x - 2, y], [x, y + 2], [x, y - 2]];
 }
@@ -53,6 +54,10 @@ const 电浆转存器 = extend(GenericCrafter, "电浆转存器", {
     setBars() {
         this.super$setBars();
         this.addBar("效率", entity => new Bar(() => "效率", () => Color.red, () => getIR(entity.tile.x, entity.tile.y)[4] / 4));
+    },
+    setStats() {
+        this.super$setStats();
+        this.stats.add(new Stat("建造", new StatCat("建造")), jz());
     }
 });
 电浆转存器.buildType = prov(() => {
@@ -90,3 +95,11 @@ const 电浆转存器 = extend(GenericCrafter, "电浆转存器", {
         }
     });
 });
+
+function jz() {
+    return function (table) {
+        table.add("需建造在反应堆边上");
+        //table.add(Image(Blocks.impactReactor.uiIcon).setScaling(Scaling.fit)).size(30);
+        table.row();
+    };
+}
