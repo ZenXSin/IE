@@ -13,8 +13,7 @@ function getIR(x, y) {
             .block() instanceof ImpactReactor) {
             ir[n] = Vars.world.tile(a[i][0], a[i][1]);
             n++;
-            if (Vars.world.tile(a[i][0], a[i][1])
-                .build.productionEfficiency > 0.8) {
+            if (Vars.world.tile(a[i][0], a[i][1]).build.productionEfficiency > 0.8) {
                 f++;
             }
         }
@@ -31,8 +30,7 @@ function getpower(x, y, sideLength) {
         for (var j = y - halfSide; j <= y + halfSide; j++) {
             try {
                 if (Vars.world.tile(i, j)
-                    .block()
-                    .hasPower) {
+                    .block().hasPower) {
                     xy[io] = Vars.world.tile(i, j);
                     io++;
                 }
@@ -46,16 +44,13 @@ function getpower(x, y, sideLength) {
 const 电浆转存器 = extend(GenericCrafter, "电浆转存器", {
     drawPlace(x, y, rotation, valid) {
         Drawf.dashSquare(Color.white, x * 8, y * 8, 5 * 8);
-    },
-    canPlaceOn(tile, team, rotation) {
+    }, canPlaceOn(tile, team, rotation) {
         return !getIR(tile.x, tile.y)
             .includes("null");
-    },
-    setBars() {
+    }, setBars() {
         this.super$setBars();
         this.addBar("效率", entity => new Bar(() => "效率", () => Color.red, () => getIR(entity.tile.x, entity.tile.y)[4] / 4));
-    },
-    setStats() {
+    }, setStats() {
         this.super$setStats();
         this.stats.add(new Stat("建造", new StatCat("建造")), jz());
     }
@@ -78,8 +73,7 @@ const 电浆转存器 = extend(GenericCrafter, "电浆转存器", {
             } else {
                 i++;
             }
-        },
-        killed() {
+        }, killed() {
             var ip = getpower(this.tile.x, this.tile.y, 100);
             for (let i = 0; i < ip.length; i++) {
                 try {
