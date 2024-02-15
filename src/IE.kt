@@ -31,5 +31,4 @@ class IE : Mod() {
         Events.on(WorldLoadEndEvent::class.java) { ok = false }
     }
 }
-
 //by zxs(转载勿删
