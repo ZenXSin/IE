@@ -1,7 +1,7 @@
 {
     //"type": "LiquidRouter",
     "name": "磁约束容器",
-    "description": "将流体约束在内部，自带修复立场，需要通电使用",
+    "description": "将流体约束在内部，自带修复立场，自带储能电池，需要通电使用",
     "size": 3,
     "health": 2000,
     "liquidCapacity": 2000,

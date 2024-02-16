@@ -1,7 +1,7 @@
 {
     "name": "电浆融井",
     "description": "使用电浆直接融化矿物，可以快速开采基础金属矿。需要水冷却",
-    "details": "停电的时候，我将实至名归",
+    "details": "自带储能电池，需要通电使用",
     "size": 5,
     "health": 2000,
     "hasPower": true,
@@ -11,7 +11,6 @@
     "liquidCapacity": 100,
     "itemCapacity": 50,
     "outputItems": ["copper/0","lead/0","titanium/0","scrap/0","铝/0","beryllium/0","tungsten/0","metaglass/0","silicon/0"],
-    "outputLiquid": "slag/0",
     "requirements": [
         "铝/180",
         "titanium/260",
@@ -66,5 +65,6 @@
     "consumes": {
         "power": 8,
         "liquids": ["电浆流/0.5","water/2"]
-    }
+    },
+    "category": "production"
 }

@@ -11,13 +11,6 @@ const 磁约束容器 = extend(LiquidRouter,"磁约束容器",{
             this.super$updateTile();
             if (this.power.status >= 0.8) {
                 this.health += (this.maxHealth - this.health) * 0.001;
-            } else {
-                try {
-                    if (this.liquids.current()
-                        .temperature >= 2) {
-                        this.kill();
-                    }
-                } catch (e) {}
             }
         }
     });

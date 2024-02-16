@@ -6,6 +6,8 @@ import mindustry.content.Blocks
 import mindustry.content.Items
 import mindustry.content.Liquids
 import mindustry.ctype.ContentType
+import mindustry.gen.Icon
+import mindustry.world.Block
 import mindustry.world.blocks.liquid.*
 import mindustry.world.blocks.production.GenericCrafter
 
@@ -24,8 +26,7 @@ fun getLiquid() {
         }
     }/*
     var aaa = object: GenericCrafter("hhh") {}
-    //aaa.GenericCrafterBuild().items.add
+    //Not enough information to infer type variable T
     Items.metaglass*/
 }
-//by zxs(转载勿删
 

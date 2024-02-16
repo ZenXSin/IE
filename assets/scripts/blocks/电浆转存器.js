@@ -93,7 +93,7 @@ const 电浆转存器 = extend(GenericCrafter, "电浆转存器", {
 function jz() {
     return function (table) {
         table.add("需建造在反应堆边上");
-        //table.add(Image(Blocks.impactReactor.uiIcon).setScaling(Scaling.fit)).size(30);
+        table.add(Image(Blocks.impactReactor.uiIcon).setScaling(Scaling.fit)).size(30);
         table.row();
     };
 }
