@@ -7,7 +7,7 @@ function getDrill(xi, yi) {
 
 function getOre(x, y) {
     const xy = getDrill(x, y);
-    const str = ["copper", "lead", "titanium", "scrap", "工业拓展-铝", "beryllium", "tungsten", "sand"];
+    const str = ["copper", "lead", "titanium", "scrap", "工业拓展-铝", "beryllium", "tungsten"];
     let ore = [["null", 0]];
     xy.forEach(xy => {
         const x = xy[0];
@@ -36,8 +36,8 @@ function getOre(x, y) {
             const x = xy[0];
             const y = xy[1];
             const tile = Vars.world.tile(x, y);
-            if (tile.Floor().itemDrop == Items.sand) {
-                ret[0] == tile.Floor().itemDrop
+            if (tile.floor().itemDrop == Items.sand) {
+                ret[0] = tile.floor().itemDrop
                 ret[1]++
             }
         })
