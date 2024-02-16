@@ -15,7 +15,7 @@ function getOre(x, y) {
         if (tile.block() instanceof OreBlock && str.includes(tile.block().name)) {
             let nt = false;
             for (let i = 0; i < ore.length; i++) {
-                if (ore[i][0] == tile.block()) {
+                if (ore[i][0] === tile.block()) {
                     ore[i][1]++;
                     nt = true;
                 }
@@ -25,7 +25,13 @@ function getOre(x, y) {
             }
         }
     }
-    return ore;
+    let oRe = ["null",0];
+    for(let i = 0;i<ore.length;i++) {
+        if (ore[i][1] > oRe[1]) {
+            oRe = ore[i];
+        }
+    }
+    return oRe;
 }
 
 //copper，lead，titanium，scrap，工业拓展-铝，beryllium，tungsten
@@ -33,9 +39,9 @@ const 电浆融井 = extend(GenericCrafter, "电浆融井", {
     drawPlace(x, y, rotation, valid) {
         this.super$drawPlace(x, y, rotation, valid);
 
-    }, canPlaceOn(tile, team, rotation) {
-        return !getIR(tile.x, tile.y)
-            .includes("null");
+    },
+    canPlaceOn(tile, team, rotation) {
+        return getOre(tile.x,tile.y)[0] !== "null"
     }
 });
 const eff = new Effect(160, e => {

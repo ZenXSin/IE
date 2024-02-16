@@ -1,13 +1,8 @@
 package world
 
-import arc.scene.ui.Image
-import arc.scene.ui.layout.Table
-import arc.util.Scaling
 import mindustry.Vars
-import mindustry.content.Blocks
 import mindustry.ctype.ContentType
 import mindustry.world.blocks.liquid.*
-import mindustry.world.meta.StatValue
 
 fun getLiquid() {
     Vars.world.tiles.eachTile {

@@ -4,5 +4,5 @@
     description: "都是js与kotlin狠活，感谢@pnk mod 的贴图",
     version: "0.06.0 BETA",
     minGameVersion: 146,
-    main:IE,
+    main:Ie,
     kotlin: true
