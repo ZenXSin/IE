@@ -79,16 +79,16 @@ const eff = new Effect(160, e => {
                 ore = getOre(this.tile.x, this.tile.y);
             }
             if (ore[0] == Items.sand){
-                if (Math.floor(Math.random() * (8 + 1)) == 8) {
+                if (Math.floor(Math.random() * 5) == 4) {
                     this.items.add(Items.metaglass, 1);
-                } else if(Math.floor(Math.random() * (8 + 1)) == 8) {
+                } else if(Math.floor(Math.random() * 5) == 4) {
                     this.items.add(Items.silicon, 1);
                 } else {
                     this.items.add(Items.scrap, 1);
                 }
             } else {
                 this.items.add(ore[0], ore[1]);
-                this.items.add(Items.scrap, ore[1] / 8);
+                this.items.add(Items.scrap, ore[1] / 2);
             }
         }
     });
