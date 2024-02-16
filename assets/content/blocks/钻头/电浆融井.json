@@ -1,6 +1,6 @@
 {
     "name": "电浆融井",
-    "description": "使用电浆直接融化矿物，可以快速开采基础金属矿",
+    "description": "使用电浆直接融化矿物，可以快速开采基础金属矿。需要水冷却",
     "size": 5,
     "health": 2000,
     "hasPower": true,
@@ -61,6 +61,7 @@
     },
     "consumes": {
         "power": 8,
-        "liquid": "电浆流/0.5"
+        "liquids": ["电浆流/0.5","water/2"]
     }
 }
+//["电浆流/0.5","water/2"]
