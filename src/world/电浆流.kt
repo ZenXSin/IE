@@ -1,8 +1,13 @@
 package world
 
+import arc.func.Prov
 import mindustry.Vars
+import mindustry.content.Blocks
+import mindustry.content.Items
+import mindustry.content.Liquids
 import mindustry.ctype.ContentType
 import mindustry.world.blocks.liquid.*
+import mindustry.world.blocks.production.GenericCrafter
 
 fun getLiquid() {
     Vars.world.tiles.eachTile {
@@ -17,6 +22,10 @@ fun getLiquid() {
                 } catch (_: Exception) { }
             }
         }
-    }
+    }/*
+    var aaa = object: GenericCrafter("hhh") {}
+    //aaa.GenericCrafterBuild().items.add
+    Items.metaglass*/
 }
 //by zxs(转载勿删
+

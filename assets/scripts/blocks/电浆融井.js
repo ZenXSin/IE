@@ -24,14 +24,14 @@ function getOre(x, y) {
                 })
             }
         }
-    })
+    });
     let ret = ["null", 0]
     ore.forEach(i => {
         if (i[1] > ret[1]) {
             ret = i
         }
-    })
-    if (ret[0] == null) {
+    });
+    if (ret[0] == "null") {
         xy.forEach(xy => {
             const x = xy[0];
             const y = xy[1];
@@ -40,7 +40,7 @@ function getOre(x, y) {
                 ret[0] = tile.floor().itemDrop
                 ret[1]++
             }
-        })
+        });
     }
     return ret;
 }
@@ -52,6 +52,9 @@ const 电浆融井 = extend(GenericCrafter, "电浆融井", {
 
     }, canPlaceOn(tile, team, rotation) {
         return getOre(tile.x, tile.y)[0] !== "null"
+    }, setStats() {
+        this.super$setStats();
+        this.stats.remove(Stat.output);
     }
 });
 const eff = new Effect(160, e => {
@@ -66,5 +69,27 @@ const eff = new Effect(160, e => {
         });
     }
 });
-
 电浆融井.craftEffect = new RadialEffect(eff, 15, 90, 8);
+电浆融井.buildType = prov(() => {
+    let ore = null;
+    return extend(GenericCrafter.GenericCrafterBuild, 电浆融井, {
+        craft() {
+            this.super$craft();
+            if (ore === null) {
+                ore = getOre(this.tile.x, this.tile.y);
+            }
+            if (ore[0] == Items.sand){
+                if (Math.floor(Math.random() * (8 + 1)) == 8) {
+                    this.items.add(Items.metaglass, 1);
+                } else if(Math.floor(Math.random() * (8 + 1)) == 8) {
+                    this.items.add(Items.silicon, 1);
+                } else {
+                    this.items.add(Items.scrap, 1);
+                }
+            } else {
+                this.items.add(ore[0], ore[1]);
+                this.items.add(Items.scrap, ore[1] / 8);
+            }
+        }
+    });
+});
