@@ -1,6 +1,7 @@
 {
     "name": "电浆融井",
     "description": "使用电浆直接融化矿物，可以快速开采基础金属矿。需要水冷却",
+    "details": "停电的时候，我将实至名归",
     "size": 5,
     "health": 2000,
     "hasPower": true,
@@ -30,10 +31,10 @@
             },
             "DrawDefault",
             	{
-				"type": "DrawGlowRegion",//贴图后缀∶glow
-				"alpha": 1,//透明度
-				"glowScale": 3.53429173,//频率，1.5π一秒
-				"color": "75E6D3E2"//颜色
+				"type": "DrawGlowRegion",
+				"alpha": 1,
+				"glowScale": 3.53429173,
+				"color": "75E6D3E2"
 			}
         ]
     },
@@ -64,4 +65,3 @@
         "liquids": ["电浆流/0.5","water/2"]
     }
 }
-//["电浆流/0.5","water/2"]

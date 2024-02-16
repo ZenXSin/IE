@@ -14,8 +14,7 @@ fun getLiquid() {
             ) {
                 try {
                     it.build.kill()
-                } catch (a: Exception) {
-                }
+                } catch (_: Exception) { }
             }
         }
     }

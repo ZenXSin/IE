@@ -9,14 +9,12 @@ function getOre(x, y) {
     const xy = getDrill(x, y);
     const str = ["copper", "lead", "titanium", "scrap", "工业拓展-铝", "beryllium", "tungsten", "sand"];
     let ore = [["null", 0]];
-    let n = 0
     xy.forEach(xy => {
         const x = xy[0];
         const y = xy[1];
         const tile = Vars.world.tile(x, y);
         if (tile.overlay() instanceof OreBlock) {
             if (str.includes(tile.overlay().itemDrop.name)) {
-                const ok = false;
                 ore.forEach(i => {
                     if (tile.overlay().itemDrop == i[0]) {
                         i[1]++;
