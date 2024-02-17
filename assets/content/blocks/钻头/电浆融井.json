@@ -10,6 +10,7 @@
     "update": true,
     "liquidCapacity": 100,
     "itemCapacity": 50,
+    "craftTime": 50,
     "outputItems": ["copper/0","lead/0","titanium/0","scrap/0","铝/0","beryllium/0","tungsten/0","metaglass/0","silicon/0"],
     "requirements": [
         "铝/180",

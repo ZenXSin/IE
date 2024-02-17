@@ -27,6 +27,7 @@ fun getLiquid() {
     }/*
     var aaa = object: GenericCrafter("hhh") {}
     //Not enough information to infer type variable T
-    Items.metaglass*/
+    Items.metaglass
+    aaa.GenericCrafterBuild()*/
 }
 

@@ -13,15 +13,17 @@ function getOre(x, y) {
         const x = xy[0];
         const y = xy[1];
         const tile = Vars.world.tile(x, y);
-        if (tile.overlay() instanceof OreBlock) {
-            if (str.includes(tile.overlay().itemDrop.name)) {
-                ore.forEach(i => {
-                    if (tile.overlay().itemDrop == i[0]) {
-                        i[1]++;
-                    } else {
-                        ore[0] = [tile.overlay().itemDrop, 1];
-                    }
-                })
+        if (tile.overlay() !== null) {
+            if (tile.overlay() instanceof OreBlock) {
+                if (str.includes(tile.overlay().itemDrop.name)) {
+                    ore.forEach(i => {
+                        if (tile.overlay().itemDrop == i[0]) {
+                            i[1]++;
+                        } else {
+                            ore[0] = [tile.overlay().itemDrop, 1];
+                        }
+                    })
+                }
             }
         }
     });
@@ -70,7 +72,7 @@ const eff = new Effect(160, e => {
         });
     }
 });
-电浆融井.craftEffect = new RadialEffect(eff, 15, 90, 8);
+电浆融井.craftEffect = new RadialEffect(eff, 5, 90, 8);
 电浆融井.buildType = prov(() => {
     let ore = null;
     return extend(GenericCrafter.GenericCrafterBuild, 电浆融井, {
@@ -90,7 +92,7 @@ const eff = new Effect(160, e => {
         },
         drawSelect() {
             if (ore !== null) {
-                this.drawPlaceText(ore[0].name + "*" + ore[1], x, y, valid);
+                this.block.drawPlaceText(ore[0].name + "*" + ore[1], this.tile.x, this.tile.y, this.isValid);
             }
         }
     });
@@ -121,7 +123,6 @@ function jz(craftTime) {
             table.add("[red](满载速度)");
             table.row();
         });
-        table.row();
         table.add(Image(geticon("sand-floor")));
         table.add(Image(geticon("darksand")));
         table.add(Image(Icon.right));
