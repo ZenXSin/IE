@@ -10,22 +10,27 @@ function getOre(x, y) {
     const str = ["copper", "lead", "titanium", "scrap", "工业拓展-铝", "beryllium", "tungsten"];
     let ore = [["null", 0]];
     xy.forEach(xy => {
-        const x = xy[0];
-        const y = xy[1];
-        const tile = Vars.world.tile(x, y);
-        if (tile.overlay() !== null) {
-            if (tile.overlay() instanceof OreBlock) {
-                if (str.includes(tile.overlay().itemDrop.name)) {
-                    ore.forEach(i => {
-                        if (tile.overlay().itemDrop == i[0]) {
-                            i[1]++;
-                        } else {
-                            ore[0] = [tile.overlay().itemDrop, 1];
-                        }
-                    })
+        try {
+            const x = xy[0];
+            const y = xy[1];
+            const tile = Vars.world.tile(x, y);
+            if (tile.overlay() === null) {
+                return null;
+            }
+            if (tile.overlay() !== null) {
+                if (tile.overlay() instanceof OreBlock) {
+                    if (str.includes(tile.overlay().itemDrop.name)) {
+                        ore.forEach(i => {
+                            if (tile.overlay().itemDrop == i[0]) {
+                                i[1]++;
+                            } else {
+                                ore[0] = [tile.overlay().itemDrop, 1];
+                            }
+                        })
+                    }
                 }
             }
-        }
+        } catch (e) { }
     });
     let ret = ["null", 0]
     ore.forEach(i => {
@@ -38,10 +43,12 @@ function getOre(x, y) {
             const x = xy[0];
             const y = xy[1];
             const tile = Vars.world.tile(x, y);
-            if (tile.floor().itemDrop == Items.sand) {
-                ret[0] = tile.floor().itemDrop
-                ret[1]++
-            }
+            try {
+                if (tile.floor().itemDrop == Items.sand) {
+                    ret[0] = tile.floor().itemDrop
+                    ret[1]++
+                }
+            } catch (e) { }
         });
     }
     return ret;
@@ -51,10 +58,16 @@ const 电浆融井 = extend(GenericCrafter, "电浆融井", {
     drawPlace(x, y, rotation, valid) {
         this.super$drawPlace(x, y, rotation, valid);
         const ore = getOre(x, y);
-        this.drawPlaceText(ore[0].name + "*" + ore[1], x, y, valid);
-    }, canPlaceOn(tile, team, rotation) {
+        if (!(ore == null)) {
+            ore[0] == "null" ? this.drawPlaceText("无法建造", x, y, valid) : this.drawPlaceText(<ore 0=""></ore> + "*" + ore[1], x, y, valid);
+        } else {
+            this.drawPlaceText("无法建造", x, y, valid)
+        }
+    },
+    canPlaceOn(tile, team, rotation) {
         return getOre(tile.x, tile.y)[0] !== "null"
-    }, setStats() {
+    },
+    setStats() {
         this.super$setStats();
         this.stats.remove(Stat.output);
         this.stats.add(Stat.output, jz(this.craftTime));
@@ -91,15 +104,21 @@ const eff = new Effect(160, e => {
             }
         },
         drawSelect() {
-            if (ore !== null) {
-                this.block.drawPlaceText(ore[0].name + "*" + ore[1], this.tile.x, this.tile.y, this.isValid);
-            }
+            try {
+                if (ore[0] !== "null") {
+                    this.block.drawPlaceText(ore[0] + "*" + ore[1], this.tile.x, this.tile.y, true);
+                }
+            } catch(e) {}
         }
     });
 });
 
 function geticon(name) {
     return Vars.content.getByName(ContentType.block, name).uiIcon;
+}
+
+function itemIcon(name) {
+    return Vars.content.getByName(ContentType.item, name).uiIcon;
 }
 
 function jz(craftTime) {
@@ -120,6 +139,7 @@ function jz(craftTime) {
             table.add(Image(geticon(resource.icon)));
             table.add(Image(Icon.right));
             table.add(new ItemDisplay(resource.item, 25, craftTime, true)).padRight(5);
+            table.add(new ItemDisplay(Items.scrap, 25 / 2, craftTime, true)).padRight(5);
             table.add("[red](满载速度)");
             table.row();
         });

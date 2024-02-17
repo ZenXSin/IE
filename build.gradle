@@ -35,25 +35,15 @@ ext{
 }
 
 //java 8 backwards compatibility flag。
-dependencies{/*
+dependencies{
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version"
+    implementation 'javax.persistence:javax.persistence-api:2.2'
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core:1.5.0'
+    annotationProcessor ("com.github.Anuken:jabel:$jabelVersion")
     compileOnly ("com.github.Anuken.Arc:arc-core:$mindustryVersion")
     compileOnly ("com.github.Anuken.Mindustry:core:$mindustryVersion")  {
         exclude group: 'com.github.Anuken.Arc', module: 'flabel'
     }
-    annotationProcessor ("com.github.Anuken:jabel:$jabelVersion")*/
-
-    //kotlin
-    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version"
-    implementation 'javax.persistence:javax.persistence-api:2.2'
-    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core:1.5.0'
-    //mdt
-    implementation "com.github.TinyLake.MindustryX_tmp:core:cf96f4730e"
-    //ktor
-    /*
-    implementation "io.ktor:ktor-server-core:2.3.8"
-    implementation "io.ktor:ktor-server-netty:2.3.8"
-    implementation "io.ktor:ktor-server-status-pages:2.3.8"
-    implementation "io.ktor:ktor-server-default-headers:2.3.8"*/
 
 }
 

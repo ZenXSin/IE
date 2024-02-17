@@ -15,7 +15,7 @@ fun getLiquid() {
     Vars.world.tiles.eachTile {
         val block = it.block()
         if (it.build != null && it.build.liquids != null) {
-            if (((block is Conduit || block is ArmoredConduit || block is LiquidRouter || block is LiquidJunction || block is LiquidBridge) && it.build.liquids.get(
+            if (((block is Conduit || block is LiquidRouter || block is LiquidJunction || block is LiquidBridge) && it.build.liquids.get(
                     Vars.content.getByName(ContentType.liquid, "工业拓展-电浆流")
                 ) > 0.06f) && !block.name.contains("磁约束")
             ) {
