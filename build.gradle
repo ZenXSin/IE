@@ -38,24 +38,6 @@ ext {
     jabelVersion = "93fde537c7"
     sdkRoot = System.getenv("ANDROID_HOME") ?: System.getenv("ANDROID_SDK_ROOT")
     mvn = "$modname $modvar "
-    file = new File("mod.hjson");
-    modhjson = """
-    name: ${modname},
-    displayName: "IE",
-    author: "ZenXSin",
-    description: "都是js与kotlin狠活，感谢@pnk mod 的贴图",
-    version: ${modvar},
-    repo: "ZenXSin/IE"
-    minGameVersion: 146,
-    main:Ie,
-    kotlin: true """
-    try {
-        fileWriter = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(file), StandardCharsets.UTF_8));
-        fileWriter.write(modhjson.toString());
-        fileWriter.close();
-    } catch (IOException e) {
-        e.printStackTrace();
-    }
 }
 
 //java 8 backwards compatibility flag。
