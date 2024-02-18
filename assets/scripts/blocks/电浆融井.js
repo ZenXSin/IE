@@ -30,7 +30,8 @@ function getOre(x, y) {
                     }
                 }
             }
-        } catch (e) { }
+        } catch (e) {
+        }
     });
     let ret = ["null", 0]
     ore.forEach(i => {
@@ -48,7 +49,8 @@ function getOre(x, y) {
                     ret[0] = tile.floor().itemDrop
                     ret[1]++
                 }
-            } catch (e) { }
+            } catch (e) {
+            }
         });
     }
     return ret;
@@ -59,7 +61,7 @@ const 电浆融井 = extend(GenericCrafter, "电浆融井", {
         this.super$drawPlace(x, y, rotation, valid);
         const ore = getOre(x, y);
         if (!(ore == null)) {
-            ore[0] == "null" ? this.drawPlaceText("无法建造", x, y, valid) : this.drawPlaceText(<ore 0=""></ore> + "*" + ore[1], x, y, valid);
+            ore[0] == "null" ? this.drawPlaceText("无法建造", x, y, valid) : this.drawPlaceText(ore[0] + "*" + ore[1], x, y, valid);
         } else {
             this.drawPlaceText("无法建造", x, y, valid)
         }
@@ -108,7 +110,8 @@ const eff = new Effect(160, e => {
                 if (ore[0] !== "null") {
                     this.block.drawPlaceText(ore[0] + "*" + ore[1], this.tile.x, this.tile.y, true);
                 }
-            } catch(e) {}
+            } catch (e) {
+            }
         }
     });
 });

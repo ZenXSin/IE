@@ -1,9 +1,10 @@
-    name: "工业拓展",
+
+    name: 工业拓展,
     displayName: "IE",
     author: "ZenXSin",
     description: "都是js与kotlin狠活，感谢@pnk mod 的贴图",
-    version: "0.07.0 BETA",
+    version: 0.7.0 BETA,
     repo: "ZenXSin/IE"
     minGameVersion: 146,
     main:Ie,
-    kotlin: true
+    kotlin: true 
