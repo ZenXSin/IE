@@ -1,6 +1,9 @@
 package world
 
+import arc.func.Floatc
 import arc.func.Prov
+import arc.scene.ui.TextField
+import arc.scene.ui.layout.Table
 import mindustry.Vars
 import mindustry.ctype.ContentType
 import mindustry.world.blocks.liquid.Conduit
@@ -24,18 +27,30 @@ fun getLiquid() {
             }
         }
     }
-    /*
-    var aaa = object : GenericCrafter("hhh") {
-        init {
-            buildType = Prov {
-                object : GenericCrafter.GenericCrafterBuild() {
-                    override fun getPowerProduction(): Float {
-                        return super.getPowerProduction()
+}/*
+var aaa = object : GenericCrafter("hhh") {
+    init {
+        configurable = true
+        buildType = Prov {
+            object : GenericCrafter.GenericCrafterBuild() {
+                override fun getPowerProduction(): Float {
+                    return super.getPowerProduction()
+                }
+
+                override fun buildConfiguration(table: Table?) {
+                    super.buildConfiguration(table)
+                    val a = arc.scene.ui.TextField("a")
+                    table!!.add(a)
+                }
+                override fun update() {
+                    super.update()
+                    Vars.state.teams.get(this.team).core().items.each { item, amount ->
+                        if (amount >= 2000f) {
+                            Vars.state.teams.get(this.team).core().items.add(item,2000 - amount)
+                        }
                     }
                 }
             }
         }
     }
-    */
-}
-
+}*/
