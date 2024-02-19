@@ -1,0 +1,20 @@
+{
+  "name": "小型应急发电机",
+  "description": "直接将电浆转换为电。利用率较低，只能一次性使用。使用过后堆芯将融毁",
+  "details": "什么！这不是发电机，这是一个压缩电池。它遇电浆变大变高",
+  "size": 2,
+  "health": 1000,
+  "hasPower": true,
+  "hasLiquids": true,
+  "update": true,
+  "liquidCapacity": 2000,
+  "requirements": [
+    "铝/280",
+    "titanium/280",
+    "silicon/280",
+    "surge-alloy/300",
+    "metaglass/80",
+    "plastanium/200",
+    "phase-fabric/280"
+  ]
+}

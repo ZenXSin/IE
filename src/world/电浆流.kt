@@ -2,13 +2,11 @@ package world
 
 import arc.func.Prov
 import mindustry.Vars
-import mindustry.content.Blocks
-import mindustry.content.Items
-import mindustry.content.Liquids
 import mindustry.ctype.ContentType
-import mindustry.gen.Icon
-import mindustry.world.Block
-import mindustry.world.blocks.liquid.*
+import mindustry.world.blocks.liquid.Conduit
+import mindustry.world.blocks.liquid.LiquidBridge
+import mindustry.world.blocks.liquid.LiquidJunction
+import mindustry.world.blocks.liquid.LiquidRouter
 import mindustry.world.blocks.production.GenericCrafter
 
 fun getLiquid() {
@@ -21,13 +19,23 @@ fun getLiquid() {
             ) {
                 try {
                     it.build.kill()
-                } catch (_: Exception) { }
+                } catch (_: Exception) {
+                }
             }
         }
-    }/*
-    var aaa = object: GenericCrafter("hhh") {}
-    //Not enough information to infer type variable T
-    Items.metaglass
-    aaa.GenericCrafterBuild()*/
+    }
+    /*
+    var aaa = object : GenericCrafter("hhh") {
+        init {
+            buildType = Prov {
+                object : GenericCrafter.GenericCrafterBuild() {
+                    override fun getPowerProduction(): Float {
+                        return super.getPowerProduction()
+                    }
+                }
+            }
+        }
+    }
+    */
 }
 
