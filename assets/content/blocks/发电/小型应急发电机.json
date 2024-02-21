@@ -4,8 +4,14 @@
   "details": "什么！这不是发电机，这是一个压缩电池。它遇电浆变大变高",
   "size": 2,
   "health": 1000,
+  "conductivePower": true,
   "hasPower": true,
+  "outputsPower": true,
+  "consumes": {
+    "power": 0.5
+  },
   "hasLiquids": true,
+  "hasItems": false,
   "update": true,
   "configurable": true,
   "liquidCapacity": 2000,
@@ -17,5 +23,19 @@
     "metaglass/80",
     "plastanium/200",
     "phase-fabric/280"
-  ]
+  ],
+  "drawer": {
+    "type": "DrawMulti",
+    "drawers": [
+      {
+        "type": "DrawRegion",
+        "suffix": "-bottom"
+      },
+      {
+        "type": "DrawLiquidTile",
+        "drawLiquid": "电浆流"
+      },
+      "DrawDefault"
+    ]
+  }
 }

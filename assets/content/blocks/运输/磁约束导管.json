@@ -1,7 +1,6 @@
 {
-  //"type": "ArmoredConduit",
   "name": "磁约束导管",
-  "description": "将流体约束在内部，更快，更安全。自带修复立场，需要通电使用"
+  "description": "将流体约束在内部，更快，更安全。自带修复立场，需要通电使用",
   "health": 220,
   "size": 1,
   "update": true,

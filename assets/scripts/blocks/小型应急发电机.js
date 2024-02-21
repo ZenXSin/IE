@@ -1,39 +1,51 @@
-let auto = 5000;
+let auto = 0;
 const 小型应急发电机 = extend(GenericCrafter, "小型应急发电机", {
     setStats() {
         this.super$setStats();
         this.stats.remove(Stat.output);
         this.stats.remove(Stat.productionTime);
-        this.stats.add(new Stat("自动开机", new StatCat("触发条件")), function (table) {
-            auto = setPower(table,auto)
+        this.stats.add(new Stat("阈值", new StatCat("自启动")), function (table) {
+            let tex = TextField(auto / 1000).update(() => {
+                try {
+                    if (Number(tex.text) > 0) auto = Number(tex.text) * 1000;
+                } catch (e) {
+                }
+            })
+            table.add(tex);
+            table.add("K");
+            table.background(Tex.whiteui.tint(Pal.darkestGray))
+            table.row();
         });
     }
 });
 小型应急发电机.configurable = true;
 小型应急发电机.buildType = prov(() => {
-    let autoState = auto;
+    let autoopen = auto;
+    let start = false;
+    let prepare = false;
     return extend(GenericCrafter.GenericCrafterBuild, 小型应急发电机, {
         buildConfiguration(table) {
             this.super$buildConfiguration(table);
-            autoState = setPower(table,autoState);
+            if (start) table.add("状态：[red]运行中!"); else if (prepare) table.add("状态：[green]准备就绪!"); else table.add("状态：[grey]未就绪!")
+            table.row();
+            table.add("当前检查阈值：" + auto / 1000 + "K");
+            table.row();
+            table.button(prepare ? start ? "[grey]启动" : "[green]启动" : "[grey]启动", () => {
+                if (prepare) start = true
+            });
+            table.background(Tex.whiteui.tint(Pal.darkestGray))
+            table.row();
+        },
+        updateTile() {
+            this.super$updateTile();
+            if (this.liquids.get(Vars.content.liquid("工业拓展-电浆流")) > 1990) prepare = true;
+            if (!prepare) this.block.liquidFilter[Vars.content.liquid("工业拓展-电浆流").id] = true; else this.block.liquidFilter[Vars.content.liquid("工业拓展-电浆流").id] = false;
+            if (this.power.graph.getLastCapacity() < auto && prepare) start = true;
+            if (start && this.liquids.get(Vars.content.liquid("工业拓展-电浆流")) < 1) this.kill();
+            if (start) this.liquids.set(Vars.content.liquid("工业拓展-电浆流"), this.liquids.get(Vars.content.liquid("工业拓展-电浆流")) - 2);
+        },
+        getPowerProduction() {
+            return start ? 700 : 0
         }
     });
 });
-
-function setPower(table,t) {
-    let aut = 0;
-    const text = TextField(t / 1000).update(() => {
-        try {
-            aut = text.text * 1000
-        } catch (e) {
-        }
-    });
-    table.add(text);
-    table.add("K");
-    table.row();
-    if(aut <= 0) {
-        return t;
-    } else {
-        return aut;
-    }
-}

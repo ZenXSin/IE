@@ -11,6 +11,7 @@ import mindustry.world.blocks.liquid.LiquidBridge
 import mindustry.world.blocks.liquid.LiquidJunction
 import mindustry.world.blocks.liquid.LiquidRouter
 import mindustry.world.blocks.production.GenericCrafter
+import mindustry.world.consumers.ConsumePower
 
 fun getLiquid() {
     Vars.world.tiles.eachTile {
@@ -39,11 +40,12 @@ var aaa = object : GenericCrafter("hhh") {
 
                 override fun buildConfiguration(table: Table?) {
                     super.buildConfiguration(table)
-                    val a = arc.scene.ui.TextField("a")
-                    table!!.add(a)
+                    table.button()
                 }
                 override fun update() {
                     super.update()
+                    this.power.graph.batteryCapacity
+                    ConsumePower
                     Vars.state.teams.get(this.team).core().items.each { item, amount ->
                         if (amount >= 2000f) {
                             Vars.state.teams.get(this.team).core().items.add(item,2000 - amount)

@@ -37,7 +37,7 @@ dependencies{
     compileOnly ("com.github.Anuken.Mindustry:core:$mindustryVersion")  {
         exclude group: 'com.github.Anuken.Arc', module: 'flabel'
     }
-    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version"
+    compileOnly "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version"
 
 }
 
