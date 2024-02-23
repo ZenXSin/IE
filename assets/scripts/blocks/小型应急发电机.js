@@ -1,4 +1,15 @@
+//by zxs(转载勿删
+
 let auto = 0;
+const draw = extend(DrawBlock,{
+    draw(build){
+        this.super$draw(build);
+        Draw.color(build.liquids.get(Vars.content.liquid("工业拓展-电浆流")) > 1990 ? Color.green : Color.red);
+        Draw.rect(Core.atlas.find(build.block.name + "-glow"), build.x, build.y, 0);
+        Draw.reset();
+        Draw.blend();
+    }
+})
 const 小型应急发电机 = extend(GenericCrafter, "小型应急发电机", {
     setStats() {
         this.super$setStats();
@@ -19,6 +30,7 @@ const 小型应急发电机 = extend(GenericCrafter, "小型应急发电机", {
     }
 });
 小型应急发电机.configurable = true;
+小型应急发电机.drawer = new DrawMulti(new DrawRegion("-bottom"),new DrawLiquidTile(Vars.content.liquid("工业拓展-电浆流")),new DrawDefault(),draw)
 小型应急发电机.buildType = prov(() => {
     let autoopen = auto;
     let start = false;
@@ -45,7 +57,10 @@ const 小型应急发电机 = extend(GenericCrafter, "小型应急发电机", {
             if (start) this.liquids.set(Vars.content.liquid("工业拓展-电浆流"), this.liquids.get(Vars.content.liquid("工业拓展-电浆流")) - 2);
         },
         getPowerProduction() {
-            return start ? 700 : 0
+            return start ? 100 : 0
+        },
+        drawLight() {
+            Drawf.light(this.x,this.y,50,this.liquids.get(Vars.content.liquid("工业拓展-电浆流")) > 1990 ? Color.green : Color.red,0.5)
         }
     });
 });

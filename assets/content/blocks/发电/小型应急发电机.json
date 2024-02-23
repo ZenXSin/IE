@@ -23,19 +23,5 @@
     "metaglass/80",
     "plastanium/200",
     "phase-fabric/280"
-  ],
-  "drawer": {
-    "type": "DrawMulti",
-    "drawers": [
-      {
-        "type": "DrawRegion",
-        "suffix": "-bottom"
-      },
-      {
-        "type": "DrawLiquidTile",
-        "drawLiquid": "电浆流"
-      },
-      "DrawDefault"
-    ]
-  }
+  ]
 }

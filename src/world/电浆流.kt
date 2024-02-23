@@ -2,6 +2,8 @@ package world
 
 import arc.func.Floatc
 import arc.func.Prov
+import arc.graphics.Color
+import arc.graphics.Colors
 import arc.scene.ui.TextField
 import arc.scene.ui.layout.Table
 import mindustry.Vars
