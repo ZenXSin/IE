@@ -1,0 +1,14 @@
+{
+  "type": "Floor",
+  "name": "低层物品卸载器",
+  "size": 1,
+  "update": true,
+  "destructible": true,
+  "underBullets": true,
+  "rotate": true,
+  "drawArrow": true,
+  "breakable": true,
+  "placeableOn": true,
+  "enableDrawStatus": true
+
+}

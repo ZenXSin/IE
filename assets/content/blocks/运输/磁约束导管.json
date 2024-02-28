@@ -4,6 +4,7 @@
   "health": 220,
   "size": 1,
   "update": true,
+  "noUpdateDisabled": false,
   "liquidCapacity": 30,
   "liquidPressure": 3,
   "conductivePower": true,

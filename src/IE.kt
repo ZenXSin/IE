@@ -10,7 +10,7 @@ import mindustry.game.EventType.WorldLoadEvent
 import mindustry.game.Team
 import mindustry.mod.Mod
 import world.getLiquid
-
+//by zxs(转载勿删
 class Ie : Mod() {
     private var ok = false
     private val coroutineScope = CoroutineScope(Dispatchers.Default)
@@ -29,4 +29,3 @@ class Ie : Mod() {
         Events.on(WorldLoadEndEvent::class.java) { ok = false }
     }
 }
-//by zxs(转载勿删

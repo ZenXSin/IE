@@ -32,10 +32,10 @@ const 小型应急发电机 = extend(GenericCrafter, "小型应急发电机", {
         this.super$setBars();
         this.removeBar("power")
         this.addBar("发电", entity => new Bar(
-            () => "发电：" + entity.start ? + "5.6K" : "-30K",
+            () => "发电：" + entity.power.graph.getLastCapacity() < auto && entity.liquids.get(Vars.content.liquid("工业拓展-电浆流")) > 1990? +"5.6K" : "-30K",
             () => Pal.powerBar,
-            () => entity.start ? + 1 : 0
-    ));
+            () => entity.start ? +1 : 0
+        ));
     }
 });//express
 小型应急发电机.configurable = true;

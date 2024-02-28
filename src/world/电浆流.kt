@@ -16,7 +16,7 @@ import mindustry.world.blocks.liquid.LiquidBridge
 import mindustry.world.blocks.liquid.LiquidJunction
 import mindustry.world.blocks.liquid.LiquidRouter
 import mindustry.world.meta.Env
-
+//by zxs(转载勿删
 fun getLiquid() {
     Vars.world.tiles.eachTile {
         val block = it.block()
