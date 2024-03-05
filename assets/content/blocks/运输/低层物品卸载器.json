@@ -1,14 +1,19 @@
 {
-  "type": "Floor",
+  //"type": "Block",
   "name": "低层物品卸载器",
   "size": 1,
   "update": true,
   "destructible": true,
   "underBullets": true,
-  "rotate": true,
-  "drawArrow": true,
   "breakable": true,
   "placeableOn": true,
-  "enableDrawStatus": true
-
+  "customShadow": true,
+  "hasShadow": false,
+  "enableDrawStatus": true,
+  "requirements": [
+    "plastanium/8",
+    "titanium/12",
+    "surge-alloy/12",
+    "metaglass/5"
+  ]
 }

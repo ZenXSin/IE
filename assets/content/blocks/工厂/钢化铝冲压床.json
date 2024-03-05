@@ -1,0 +1,53 @@
+{
+  "type": "GenericCrafter",
+  "name": "钢化铝冲压床",
+  "description": "在冷却液中将钛直接冲压进铝中，结合为钢化铝。成品可能略微粗糙",
+  "details": "[red]大 力 出 奇 迹",
+  "size": 3,
+  "health": 300,
+  "liquidCapacity": 25,
+  "itemCapacity": 20,
+  "hasPower": true,
+  "hasItems": true,
+  "hasLiquids": true,
+  "craftTime": 80,
+  "requirements": [
+    "silicon/80",
+    "copper/80",
+    "phase-fabric/60",
+    "surge-alloy/60 ",
+    "metaglass/40"
+  ],
+  "outputItem": {
+    "item": "钢化铝",
+    "amount": 2
+  },
+  "consumes": {
+    "power": 6,
+    "liquid": "cryofluid/0.4",
+    "items": ["titanium/1","铝/2"]
+  },
+  "drawer": {
+    "type": "DrawMulti",
+    "drawers": [
+      {
+        "type": "DrawRegion",
+        "suffix": "-bottom"
+      },
+      {
+        "type": "DrawLiquidTile",
+        "drawLiquid": "cryofluid"
+      },
+      "DrawDefault",
+      {
+        "type": "DrawGlowRegion",
+        "alpha": 0.7,
+        "glowScale": 4,
+        "color": "EB564BFF"
+      },
+      "DrawFlame"
+    ]
+  },
+  "category": "crafting",
+  "research": "surge-smelter"
+}

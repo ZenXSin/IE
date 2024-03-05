@@ -1,0 +1,9 @@
+{
+  "name": "基础空区",
+  "description": "挖空地板并放置临时支架",
+  "supportsOverlay": true,
+  "category": "effect",
+  "requirements": [
+    "copper/2","scrap/3"
+  ]
+}

@@ -1,21 +1,14 @@
 package world
 
+import Ie
 import arc.func.Cons
-import arc.func.Prov
-import arc.graphics.Color
 import mindustry.Vars
-import mindustry.content.Planets
 import mindustry.ctype.ContentType
-import mindustry.game.Rules
-import mindustry.game.Team
-import mindustry.graphics.g3d.HexMesh
-import mindustry.maps.planet.TantrosPlanetGenerator
-import mindustry.type.Planet
 import mindustry.world.blocks.liquid.Conduit
 import mindustry.world.blocks.liquid.LiquidBridge
 import mindustry.world.blocks.liquid.LiquidJunction
 import mindustry.world.blocks.liquid.LiquidRouter
-import mindustry.world.meta.Env
+import mindustry.mod.Mod
 //by zxs(转载勿删
 fun getLiquid() {
     Vars.world.tiles.eachTile {
@@ -32,31 +25,4 @@ fun getLiquid() {
             }
         }
     }
-}/*
-var aaa = object : GenericCrafter("hhh") {
-    init {
-        configurable = true
-        buildType = Prov {
-            object : GenericCrafter.GenericCrafterBuild() {
-                override fun getPowerProduction(): Float {
-                    return super.getPowerProduction()
-                }
-
-                override fun buildConfiguration(table: Table?) {
-                    super.buildConfiguration(table)
-                    table.button()
-                }
-                override fun update() {
-                    super.update()
-                    this.power.graph.batteryCapacity
-                    ConsumePower
-                    Vars.state.teams.get(this.team).core().items.each { item, amount ->
-                        if (amount >= 2000f) {
-                            Vars.state.teams.get(this.team).core().items.add(item,2000 - amount)
-                        }
-                    }
-                }
-            }
-        }
-    }
-}*/
+}
