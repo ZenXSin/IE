@@ -5,33 +5,24 @@ import kotlinx.coroutines.launch
 import mindustry.game.EventType.WorldLoadEndEvent
 import mindustry.game.EventType.WorldLoadEvent
 import mindustry.mod.Mod
-import world.getLiquid
+import world.基础空区
+import world.电浆流
 
 //by zxs(转载勿删
 class Ie : Mod() {
-    private var runs: Array<(WorldLoadEvent) -> Unit> = emptyArray()
     private var ok = false
+    private var coroutineScope = CoroutineScope(Dispatchers.Default)
     override fun loadContent() {
         super.loadContent()
-        addRun {
-            getLiquid()
-        }
         Events.on(WorldLoadEvent::class.java) {
             ok = true
-            start(it)
-        }
-        Events.on(WorldLoadEndEvent::class.java) { ok = false }
-    }
-    private fun start(worldLoadEvent: WorldLoadEvent) {
-        CoroutineScope(Dispatchers.Default).launch {
-            while (ok) {
-                runs.forEach {
-                    it(worldLoadEvent)
+            coroutineScope.launch {
+                while (ok) {
+                    基础空区()
+                    电浆流()
                 }
             }
         }
-    }
-    private fun addRun(add: (WorldLoadEvent) -> Unit) {
-        runs += arrayOf(add)
+        Events.on(WorldLoadEndEvent::class.java) { ok = false }
     }
 }

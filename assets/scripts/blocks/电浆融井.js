@@ -7,7 +7,7 @@ function getDrill(xi, yi) {
 
 function getOre(x, y) {
     const xy = getDrill(x, y);
-    const str = ["copper", "lead", "titanium", "scrap", "工业拓展-铝", "beryllium", "tungsten"];
+    const str = ["copper", "lead", "titanium", "scrap", "ie-铝", "beryllium", "tungsten"];
     let ore = [["null", 0]];
     xy.forEach(xy => {
         try {
@@ -135,7 +135,7 @@ function jz(craftTime) {
             {icon: "ore-titanium", item: Items.titanium},
             {icon: "ore-beryllium", item: Items.beryllium},
             {icon: "ore-tungsten", item: Items.tungsten},
-            {icon: "工业拓展-铝矿", item: Vars.content.getByName(ContentType.item, "工业拓展-铝")}
+            {icon: "ie-铝矿", item: Vars.content.getByName(ContentType.item, "ie-铝")}
         ];
 
         resources.forEach((resource) => {

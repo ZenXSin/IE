@@ -4,7 +4,7 @@ let auto = 0;
 const draw = extend(DrawBlock, {
     draw(build) {
         this.super$draw(build);
-        Draw.color(build.liquids.get(Vars.content.liquid("工业拓展-电浆流")) > 1990 ? Color.green : Color.red);
+        Draw.color(build.liquids.get(Vars.content.liquid("ie-电浆流")) > 1990 ? Color.green : Color.red);
         Draw.rect(Core.atlas.find(build.block.name + "-glow"), build.x, build.y, 0);
         Draw.reset();
         Draw.blend();
@@ -32,14 +32,14 @@ const 小型应急发电机 = extend(GenericCrafter, "小型应急发电机", {
         this.super$setBars();
         this.removeBar("power")
         this.addBar("发电", entity => new Bar(
-            () => "发电：" + entity.power.graph.getLastCapacity() < auto && entity.liquids.get(Vars.content.liquid("工业拓展-电浆流")) > 1990? +"5.6K" : "-30K",
+            () => "发电：" + entity.power.graph.getLastCapacity() < auto && entity.liquids.get(Vars.content.liquid("ie-电浆流")) > 1990? +"5.6K" : "-30K",
             () => Pal.powerBar,
             () => entity.start ? +1 : 0
         ));
     }
 });//express
 小型应急发电机.configurable = true;
-小型应急发电机.drawer = new DrawMulti(new DrawRegion("-bottom"), new DrawLiquidTile(Vars.content.liquid("工业拓展-电浆流")), new DrawDefault(), draw)
+小型应急发电机.drawer = new DrawMulti(new DrawRegion("-bottom"), new DrawLiquidTile(Vars.content.liquid("ie-电浆流")), new DrawDefault(), draw)
 小型应急发电机.buildType = prov(() => {
     let autoopen = auto;
     let start = false;
@@ -59,17 +59,17 @@ const 小型应急发电机 = extend(GenericCrafter, "小型应急发电机", {
         },
         updateTile() {
             this.super$updateTile();
-            if (this.liquids.get(Vars.content.liquid("工业拓展-电浆流")) > 1990) prepare = true;
-            if (!prepare) this.block.liquidFilter[Vars.content.liquid("工业拓展-电浆流").id] = true; else this.block.liquidFilter[Vars.content.liquid("工业拓展-电浆流").id] = false;
+            if (this.liquids.get(Vars.content.liquid("ie-电浆流")) > 1990) prepare = true;
+            if (!prepare) this.block.liquidFilter[Vars.content.liquid("ie-电浆流").id] = true; else this.block.liquidFilter[Vars.content.liquid("ie-电浆流").id] = false;
             if (this.power.graph.getLastCapacity() < auto && prepare) start = true;
-            if (start && this.liquids.get(Vars.content.liquid("工业拓展-电浆流")) < 1) this.kill();
-            if (start) this.liquids.set(Vars.content.liquid("工业拓展-电浆流"), this.liquids.get(Vars.content.liquid("工业拓展-电浆流")) - 2);
+            if (start && this.liquids.get(Vars.content.liquid("ie-电浆流")) < 1) this.kill();
+            if (start) this.liquids.set(Vars.content.liquid("ie-电浆流"), this.liquids.get(Vars.content.liquid("ie-电浆流")) - 2);
         },
         getPowerProduction() {
             return start ? 100 : 0
         },
         drawLight() {
-            Drawf.light(this.x, this.y, 50, this.liquids.get(Vars.content.liquid("工业拓展-电浆流")) > 1990 ? Color.green : Color.red, 0.5)
+            Drawf.light(this.x, this.y, 50, this.liquids.get(Vars.content.liquid("ie-电浆流")) > 1990 ? Color.green : Color.red, 0.5)
         }
     });
 });

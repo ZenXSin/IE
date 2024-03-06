@@ -1,6 +1,6 @@
 
-    name: 工业拓展,
-    displayName: "IE",
+    name: "IE",
+    displayName: "工业拓展",
     author: "ZenXSin",
     description: "都是js与kotlin狠活，感谢@pnk mod 的贴图",
     version: 0.7.1 BETA,
