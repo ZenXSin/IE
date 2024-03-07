@@ -28,5 +28,5 @@ jobs:
     - name: Release
       uses: softprops/action-gh-release@v1
       with:
-        files: 'build/libs/${{ github.event.repository.name }}.jar'
+        files: 'build/libs/IE.jar'
         tag_name: 'BETA'
