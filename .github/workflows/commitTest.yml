@@ -28,5 +28,3 @@ jobs:
         token: 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
         files: build/libs/${{ github.event.repository.name }}.jar
         tag_name: BETA
-      env:
-        GITHUB_TOKEN: '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'
