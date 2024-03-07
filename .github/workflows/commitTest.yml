@@ -28,6 +28,5 @@ jobs:
     - name: Release
       uses: softprops/action-gh-release@v1
       with:
-        token: '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'
-        files: build/libs/${{ github.event.repository.name }}.jar
+        files: 'build/libs/${{ github.event.repository.name }}.jar'
         tag_name: 'BETA'
