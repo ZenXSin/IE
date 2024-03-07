@@ -1,42 +1,38 @@
+name: Build Mod and Release
 
-name: Build Mod
-
-on: [push, pull_request]
+on:
+  push:
+    branches:
+      - main
+  pull_request:
 
 jobs:
   buildJar:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v2
-    - name: Set up PATH
-      run: |
-        echo "${ANDROID_HOME}/build-tools/34.0.0" >> $GITHUB_PATH
-    - name: Set up JDK 17
-      uses: actions/setup-java@v1
-      with:
-        java-version: 17
-    - name: Build mod jar
-      run: ./gradlew deploy
-    - name: Upload built jar file
-      uses: actions/upload-artifact@v2
-      with:
-        name: ${{ github.event.repository.name }}
-        path: build/libs/${{ github.event.repository.name }}.jar
-    - name: Create Release
-      id: create_release
-      uses: actions/create-release@v1
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      with:
-        tag_name: v${{ github.sha }}
-        release_name: Release ${{ github.sha }}
-        body: |
-          This is an automated release for commit ${{ github.sha }}.
-          Add any release notes or additional information here.
-
-    - name: Upload JAR
-      uses: actions/upload-artifact@v2
-      with:
-        name: JAR
-        path: build/libs/*.jar
+      - uses: actions/checkout@v2
+      - name: Set up PATH
+        run: |
+          echo "${ANDROID_HOME}/build-tools/34.0.0" >> $GITHUB_PATH
+      - name: Set up JDK 17
+        uses: actions/setup-java@v1
+        with:
+          java-version: 17
+      - name: Build mod jar
+        run: ./gradlew deploy
+      - name: Create Release
+        id: create_release
+        uses: actions/create-release@latest
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: v${{ github.sha }}
+          release_name: Release ${{ github.sha }}
+          draft: false
+          prerelease: false
+      - name: Upload built jar file
+        uses: actions/upload-artifact@v2
+        with:
+          name: Built Jar
+          path: build/libs/${{ github.event.repository.name }}.jar
