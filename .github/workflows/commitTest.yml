@@ -23,3 +23,20 @@ jobs:
       with:
         name: ${{ github.event.repository.name }}
         path: build/libs/${{ github.event.repository.name }}.jar
+    - name: Create Release
+      id: create_release
+      uses: actions/create-release@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        tag_name: v${{ github.sha }}
+        release_name: Release ${{ github.sha }}
+        body: |
+          This is an automated release for commit ${{ github.sha }}.
+          Add any release notes or additional information here.
+
+    - name: Upload JAR
+      uses: actions/upload-artifact@v2
+      with:
+        name: JAR
+        path: build/libs/*.jar
