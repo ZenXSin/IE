@@ -1,4 +1,3 @@
-
 name: Build Mod
 
 on: [push, pull_request]
@@ -23,10 +22,8 @@ jobs:
       with:
         name: ${{ github.event.repository.name }}
         path: build/libs/${{ github.event.repository.name }}.jar
-    - name: Checkout
-      uses: actions/checkout@v4
     - name: Release
       uses: softprops/action-gh-release@v1
       with:
-        files: 'build/libs/IE.jar'
-        tag_name: 'BETA'
+        files: build/libs/${{ github.event.repository.name }}.jar
+        tag_name: BETA
