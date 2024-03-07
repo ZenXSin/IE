@@ -32,3 +32,4 @@ jobs:
         uses: softprops/action-gh-release@v1
         with:
           files: build/libs/${{ github.event.repository.name }}.jar
+          tag_name: 'BETA'
