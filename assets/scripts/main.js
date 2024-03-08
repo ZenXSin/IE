@@ -5,3 +5,4 @@ require("blocks/磁约束容器");
 require("blocks/电浆融井");
 require("blocks/小型应急发电机");
 require("blocks/低层建造区")
+require("blocks/低层物品卸载器")

@@ -1,0 +1,1 @@
+Vars.mods.getScripts().runConsole()

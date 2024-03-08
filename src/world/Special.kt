@@ -1,12 +1,15 @@
 package world
 
+import arc.func.Prov
 import mindustry.Vars
 import mindustry.content.Blocks
 import mindustry.ctype.ContentType
+import mindustry.world.blocks.environment.Floor
 import mindustry.world.blocks.liquid.Conduit
 import mindustry.world.blocks.liquid.LiquidBridge
 import mindustry.world.blocks.liquid.LiquidJunction
 import mindustry.world.blocks.liquid.LiquidRouter
+import mindustry.world.blocks.production.GenericCrafter
 
 fun 基础空区() {
     Vars.world.tiles.eachTile {
@@ -23,10 +26,7 @@ fun 电浆流() {
                     Vars.content.getByName(ContentType.liquid, "ie-电浆流")
                 ) > 0.06f) && !block.name.contains("磁约束")
             ) {
-                try {
-                    it.build.kill()
-                } catch (_: Exception) {
-                }
+                    it.build.killed()
             }
         }
     }
