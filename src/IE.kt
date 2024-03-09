@@ -7,6 +7,7 @@ import mindustry.game.EventType.WorldLoadEvent
 import mindustry.mod.Mod
 import world.基础空区
 import world.电浆流
+import java.util.*
 
 //by zxs(转载勿删
 class Ie : Mod() {
@@ -25,4 +26,7 @@ class Ie : Mod() {
         }
         Events.on(WorldLoadEndEvent::class.java) { ok = false }
     }
+}
+fun a() {
+
 }
