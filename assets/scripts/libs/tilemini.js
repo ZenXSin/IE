@@ -1,4 +1,3 @@
-const base64 = require("libs/base64")
 let tile = [];
 function add(x, y, valueToAdd) {
     let have = false;
@@ -23,4 +22,4 @@ function write(x, y, value) {
     if (!add(x,y,value)) {
         tile.push([[x,y],value]);
     }
-}    
+}
