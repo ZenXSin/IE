@@ -39,6 +39,7 @@ const 小型应急发电机 = extend(GenericCrafter, "小型应急发电机", {
     }
 });//express
 小型应急发电机.configurable = true;
+小型应急发电机.saveConfig = true;
 小型应急发电机.drawer = new DrawMulti(new DrawRegion("-bottom"), new DrawLiquidTile(Vars.content.liquid("ie-电浆流")), new DrawDefault(), draw)
 小型应急发电机.buildType = prov(() => {
     let autoopen = auto;
@@ -70,6 +71,14 @@ const 小型应急发电机 = extend(GenericCrafter, "小型应急发电机", {
         },
         drawLight() {
             Drawf.light(this.x, this.y, 50, this.liquids.get(Vars.content.liquid("ie-电浆流")) > 1990 ? Color.green : Color.red, 0.5)
+        },
+        write(w) {
+            this.super$write(w);
+            w.f(auto)
+        },
+        read(r) {
+            this.super$read(r);
+            auto = r.f()
         }
     });
 });
