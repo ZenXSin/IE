@@ -2,6 +2,7 @@ import arc.Events
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import mindustry.Vars
 import mindustry.game.EventType.WorldLoadEndEvent
 import mindustry.game.EventType.WorldLoadEvent
 import mindustry.mod.Mod
