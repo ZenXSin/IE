@@ -43,18 +43,56 @@ function addRecipe() {
     }
 }
 
+function loadRecipes(recipe) {
+    let recipes = [];
+    recipe.forEach(function (i) {
+        //[[item]]
+    });
+}
+
 function ConplexCrafter(name, recipe) {
     this.block = extend(GenericCrafter, name, this);
     this.block.buildType = prov(() => {
-        let work = [false, 0]
+        let workitems = [false, 0];
+        let worksitems = [];
+        let workliquids = [false, 0];
+        let worksliquids = [];
         return extend(GenericCrafter.GenericCrafterBuild, this.block, {
             updateTile() {
-                //判断是否正在工作
-                work[1] > 0 ? work[0] = true : false;
-                recipe.forEach(function (i) {
-
-                });
+                {//判断是否正在工作(items
+                    let tc = [];
+                    let wks = 0;
+                    recipe.forEach(function (i) {
+                        i.inputs.forEach(function (re) {
+                            tc[re.id] = [re.id, this.items.get(re[0]) >= re[1]]
+                        })
+                    });
+                    worksitems = tc;
+                    worksitems.forEach(function (i) {
+                        if (i[1]) workitems[1]++;
+                    })
+                    workitems[1] > 0 ? workitems[0] = true : false;
+                    this.efficiency = workitems[0] ? 1 : 0;
+                }
+                {//判断是否正在工作(liquids
+                    let tc = [];
+                    let wks = 0;
+                    recipe.forEach(function (i) {
+                        i.inputs.forEach(function (re) {
+                            tc[re.id] = [re.id, this.items.get(re[0]) >= re[1]]
+                        })
+                    });
+                    worksliquids = tc;
+                    worksliquids.forEach(function (i) {
+                        if (i[1]) workitems[1]++;
+                    })
+                    workliquids[1] > 0 ? workliquids[0] = true : false;
+                    this.efficiency = workliquids[0] ? 1 : 0;
+                }
+                //判断是否生产
             }
         });
     });
 }
+
+//efficiency
