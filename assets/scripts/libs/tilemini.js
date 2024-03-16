@@ -1,25 +1,30 @@
-let tile = [];
-function add(x, y, valueToAdd) {
-    let have = false;
-    for (let i = 0; i < tile.length; i++) {
-        if (tile[i][0][0] === x && tile[i][0][1] === y) {
-            tile[i][1].push(valueToAdd);
-            have = true;
-        }
-    }
-    return have;
+let tilemini = [];
+
+function resources() {
+    this.id = 0;
+    this.x = null;
+    this.y = null;
+    this.hasItems = false;
+    this.hasLiquids = false;
+    this.hasPower = false;
+    this.team = null;
+    this.itemsCapacity = 0;
+    this.liquidsCapacity = 0;
+    if (this.hasItems) this.items = null;
+    if (this.hasLiquids) this.liquids = null;
+    if (this.hasPower) this.power = 0;
+    this.load = function () {};
 }
-function read(x,y) {
-    let have = null
-    for (let i = 0; i < tile.length; i++) {
-        if (tile[i][0][0] === x && tile[i][0][1] === y) {
-            have = tile[i][1]
-        }
-    }
-    return have;
+
+function read(id) {
+    return tilemini[id];
 }
-function write(x, y, value) {
-    if (!add(x,y,value)) {
-        tile.push([[x,y],value]);
-    }
+function register(add) {
+    tilemini[add.id] = add;
+}
+function getByXY(x,y) {
+    tilemini.forEach(function (tile) {
+        if (tile.x === x && tile.y === y) return tile;
+    })
+    return false
 }

@@ -43,13 +43,25 @@ function addRecipe() {
     }
 }
 
-function loadRecipes(recipe) {
-    let recipes = [];
-    recipe.forEach(function (i) {
-        //[[item]]
-    });
+function readRecipe(recipe) {
+    this.id = recipe.id;//Don't set plans that have the same id!
+    this.inputitems = [];
+    this.inputliquids = []
+    this.craftTime = recipe.craft;
+    this.inputPower = recipe.inputPower;
+    this.outputPower = recipe.outputPower;
+    this.outputs = recipe.outputs;
+    this.craftEffect = recipe.craftEffect;
+    this.updateEffect = recipe.updateEffect;
+    this.craft = 0;
 }
 
+function loadRecipe(recipes) {
+    let ret = [];
+    recipes.forEach(function (i) {
+        ret.push(readRecipe(i))
+    })
+}
 function ConplexCrafter(name, recipe) {
     this.block = extend(GenericCrafter, name, this);
     this.block.buildType = prov(() => {
@@ -57,6 +69,7 @@ function ConplexCrafter(name, recipe) {
         let worksitems = [];
         let workliquids = [false, 0];
         let worksliquids = [];
+        let loadrecipes = loadRecipe(recipe);
         return extend(GenericCrafter.GenericCrafterBuild, this.block, {
             updateTile() {
                 {//判断是否正在工作(items
@@ -72,7 +85,6 @@ function ConplexCrafter(name, recipe) {
                         if (i[1]) workitems[1]++;
                     })
                     workitems[1] > 0 ? workitems[0] = true : false;
-                    this.efficiency = workitems[0] ? 1 : 0;
                 }
                 {//判断是否正在工作(liquids
                     let tc = [];
@@ -87,12 +99,9 @@ function ConplexCrafter(name, recipe) {
                         if (i[1]) workitems[1]++;
                     })
                     workliquids[1] > 0 ? workliquids[0] = true : false;
-                    this.efficiency = workliquids[0] ? 1 : 0;
                 }
-                //判断是否生产
+                this.efficiency = workitems[0] && workliquids[0]? 1 : 0;
             }
         });
     });
 }
-
-//efficiency

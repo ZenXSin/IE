@@ -1,0 +1,11 @@
+{
+  "name": "试车平台",
+  "drawer": {
+    "type": "DrawMulti",
+    "drawers": [
+      {
+        "type": "DrawCrucibleFlame"
+      }
+    ]
+  }
+}

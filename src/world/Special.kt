@@ -3,10 +3,12 @@ package world
 import mindustry.Vars
 import mindustry.content.Blocks
 import mindustry.ctype.ContentType
+import mindustry.world.blocks.environment.Floor
 import mindustry.world.blocks.liquid.Conduit
 import mindustry.world.blocks.liquid.LiquidBridge
 import mindustry.world.blocks.liquid.LiquidJunction
 import mindustry.world.blocks.liquid.LiquidRouter
+import mindustry.world.blocks.production.GenericCrafter
 
 
 fun 基础空区() {
@@ -29,3 +31,11 @@ fun 电浆流() {
         }
     }
 }
+/*
+fun test() {
+    var a = object : Floor("") {
+        override fun renderUpdate(tile: UpdateRenderState?) {
+            super.renderUpdate(tile)
+        }
+    }
+}*/

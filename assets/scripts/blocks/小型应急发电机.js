@@ -76,8 +76,8 @@ const 小型应急发电机 = extend(GenericCrafter, "小型应急发电机", {
             this.super$write(w);
             w.f(auto)
         },
-        read(r) {
-            this.super$read(r);
+        read(r, revision) {
+            this.super$read(r, revision);
             auto = r.f()
         }
     });
