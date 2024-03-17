@@ -19,10 +19,11 @@ const 低层物品接收器 = extend(Floor, "低层物品接收器", 0, {
     }, hasSurface() {
         return false;
     }, renderUpdate(tile) {
+        let rer = getByXY(tile.tile.x, tile.tile.y);
         try {
             //注册
-            if (getByXY(tile.tile.x, tile.tile.y)) {
-                this.rer = Object.assign(resources, {
+            if (rer === false) {
+                rer = Object.assign(resources, {
                     load() {
                         this.x = tile.tile.x;
                         this.y = tile.tile.y;
@@ -30,12 +31,12 @@ const 低层物品接收器 = extend(Floor, "低层物品接收器", 0, {
                         this.itemsCapacity = 10;
                     }
                 })
-                this.rer.load();
-                register(this.rer);
+                rer.load();
+                register(rer);
             }
             //转存
             getxy(tile.tile.x, tile.tile.y).forEach(function (i) {
-                const ite = getitem(this.rer.items);
+                const ite = getitem(rer.items);
                 if (ite !== null) {
                     const tilemini = getByXY(i[0], i[1]);
                     if (!tilemini) {
@@ -70,6 +71,34 @@ const 低层物品导管 = extend(Floor, "低层物品导管", 0, {
     }, hasSurface() {
         return false;
     }, renderUpdate(tile) {
+        try {
+            let rer = getByXY(tile.tile.x, tile.tile.y)
+            //注册
+            if (rer === false) {
+                rer = Object.assign(resources, {
+                    load() {
+                        this.x = tile.tile.x;
+                        this.y = tile.tile.y;
+                        this.hasItems = true;
+                        this.itemsCapacity = 100;
+                    }
+                })
+                rer.load();
+                register(rer);
+            }
+            //转存
+            const ite = getitem(rer.items);
+            if (ite !== null) {
+                const tilemini = getByXY(tile.tile.x + 1, tile.tile.y);
+                if (!tilemini) {
+                    if (tilemini.items.length < tilemini.itemsCapacity) {
+                        tilemini.items.push(ite);
+                    }
+                }
+            }
+        } catch (e) {
+            //print(e);
+        }
     }
 });
 低层物品导管.rotate = true;
@@ -88,15 +117,15 @@ function getitem(items) {
 function resources() {
     this.x = null;
     this.y = null;
-    this.hasItems = false;//[item]
+    this.hasItems = false;
     this.hasLiquids = false;
     this.hasPower = false;
     this.team = null;
     this.itemsCapacity = 0;
     this.liquidsCapacity = 0;
-    if (this.hasItems) this.items = [];
-    if (this.hasLiquids) this.liquids = [];
-    if (this.hasPower) this.power = 0;
+    this.items = [];
+    this.liquids = [];
+    this.power = 0;
     this.load = function () {
     };
 }

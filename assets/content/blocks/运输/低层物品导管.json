@@ -1,6 +1,7 @@
 {
   "name": "低层物品接收器",
   "size": 1,
+  "rotate": true,
   "update": true,
   "destructible": true,
   "underBullets": true,
@@ -10,9 +11,8 @@
   "hasShadow": false,
   "enableDrawStatus": true,
   "requirements": [
-    "plastanium/8",
-    "titanium/12",
+    "铝/12",
     "surge-alloy/12",
-    "铝/5"
+    "metaglass/5"
   ]
 }
