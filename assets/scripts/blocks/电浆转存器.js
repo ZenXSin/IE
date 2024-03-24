@@ -9,13 +9,16 @@ function getIR(x, y) {
     let f = 0;
     const a = ipo(x, y);
     for (let i = 0; i < a.length; i++) {
-        if (Vars.world.tile(a[i][0], a[i][1])
-            .block() instanceof ImpactReactor) {
-            ir[n] = Vars.world.tile(a[i][0], a[i][1]);
-            n++;
-            if (Vars.world.tile(a[i][0], a[i][1]).build.productionEfficiency > 0.8) {
-                f++;
+        try {
+            if (Vars.world.tile(a[i][0], a[i][1])
+                .block() instanceof ImpactReactor) {
+                ir[n] = Vars.world.tile(a[i][0], a[i][1]);
+                n++;
+                if (Vars.world.tile(a[i][0], a[i][1]).build.productionEfficiency > 0.8) {
+                    f++;
+                }
             }
+        } catch (e) {
         }
     }
     ir[4] = f;

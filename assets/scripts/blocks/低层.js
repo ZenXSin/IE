@@ -3,7 +3,7 @@ let tilemini = [];
 function getxy(x, y) {
     return [[x + 1, y], [x - 1, y], [x, y + 1], [x, y - 1]]
 }
-
+const 基础空区 = extend(Floor, "基础空区", 0, {})
 const 低层建造区 = extend(Floor, "低层建造区", 0, {
     canPlaceOn(tile, team, rotation) {
         return tile.floor().name === "ie-基础空区"

@@ -32,9 +32,21 @@ const 小型应急发电机 = extend(GenericCrafter, "小型应急发电机", {
         this.super$setBars();
         this.removeBar("power")
         this.addBar("发电", entity => new Bar(
-            () => "发电：" + entity.power.graph.getLastCapacity() < auto && entity.liquids.get(Vars.content.liquid("ie-电浆流")) > 1990? +"5.6K" : "-30K",
+            function () {
+                let start = false;
+                let prepare = false;
+                if (entity.liquids.get(Vars.content.liquid("ie-电浆流")) > 1990) prepare = true;
+                if (entity.power.graph.getLastCapacity() < auto && prepare) start = true;
+                return "发电：" + start ? "5.6K" : "-30K"
+            },
             () => Pal.powerBar,
-            () => entity.start ? +1 : 0
+            function () {
+                let start = false;
+                let prepare = false;
+                if (entity.liquids.get(Vars.content.liquid("ie-电浆流")) > 1990) prepare = true;
+                if (entity.power.graph.getLastCapacity() < auto && prepare) start = true;
+                return /*start ? */1// : 0
+            }
         ));
     }
 });//express

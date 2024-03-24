@@ -9,10 +9,10 @@
   "placeableOn": true,
   "customShadow": true,
   "hasShadow": false,
-  "enableDrawStatus": true,
-  "requirements": [
+  "enableDrawStatus": true
+  /*"requirements": [
     "铝/12",
     "surge-alloy/12",
     "metaglass/5"
-  ]
+  ]*/
 }

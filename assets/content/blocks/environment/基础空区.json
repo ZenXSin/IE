@@ -1,11 +1,10 @@
 {
-  "type": "Floor",
   "name": "基础空区",
   "description": "挖空地板并放置临时支架",
   "variants": 3,
   "supportsOverlay": true,
-  "category": "effect",
-  "requirements": [
+  "category": "effect"
+  /*"requirements": [
     "copper/2","scrap/3"
-  ]
+  ]*/
 }

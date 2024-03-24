@@ -3,7 +3,7 @@
 "description": "[red]高温，高压，高危。建议使用磁约束导管运输",
 "gas": true,
 "gasColor": "75E6D3E2",
-"flammability": 50,
+"flammability": 0.2,
 "color": "75E6D3E2",
 "temperature": 20,
 "research": "cryofluid"

@@ -2,10 +2,10 @@
   "name": "上层物品传输器",
   "description": "将输入到此设备的物品传输到下层，需要使用低层物品接收器接收",
   "size": 1,
-  "update": true,
-  "requirements": [
+  "update": true
+  /*"requirements": [
     "titanium/2",
     "铝/2",
     "metaglass/2"
-  ]
+  ]*/
 }

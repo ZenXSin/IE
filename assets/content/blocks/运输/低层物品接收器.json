@@ -8,11 +8,11 @@
   "placeableOn": true,
   "customShadow": true,
   "hasShadow": false,
-  "enableDrawStatus": true,
-  "requirements": [
+  "enableDrawStatus": true
+  /*"requirements": [
     "plastanium/8",
     "titanium/12",
     "surge-alloy/12",
     "铝/5"
-  ]
+  ]*/
 }
