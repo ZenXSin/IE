@@ -37,7 +37,11 @@ const 小型应急发电机 = extend(GenericCrafter, "小型应急发电机", {
                 let prepare = false;
                 if (entity.liquids.get(Vars.content.liquid("ie-电浆流")) > 1990) prepare = true;
                 if (entity.power.graph.getLastCapacity() < auto && prepare) start = true;
-                return "发电：" + start ? "5.6K" : "-30K"
+                if(start) {
+                    return "+5.6K";
+                } else {
+                    return "-30";
+                }
             },
             () => Pal.powerBar,
             function () {
@@ -45,7 +49,11 @@ const 小型应急发电机 = extend(GenericCrafter, "小型应急发电机", {
                 let prepare = false;
                 if (entity.liquids.get(Vars.content.liquid("ie-电浆流")) > 1990) prepare = true;
                 if (entity.power.graph.getLastCapacity() < auto && prepare) start = true;
-                return /*start ? */1// : 0
+                if(start) {
+                    return 1;
+                } else {
+                    return 0;
+                }
             }
         ));
     }

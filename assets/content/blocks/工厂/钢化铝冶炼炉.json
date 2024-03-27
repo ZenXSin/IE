@@ -1,8 +1,7 @@
 {
-  "type": "GenericCrafter",
-  "name": "钢化铝冲压床",
-  "description": "在冷却液中将钛直接冲压进铝中，结合为钢化铝。成品可能略微粗糙",
-  "details": "[red]大 力 出 奇 迹",
+  //"type": "GenericCrafter",
+  "name": "钢化铝冶炼炉",
+  "description": "将钛为首的几种基础金属熔炼在一起，形成较为坚硬而且延展性高的材料",
   "size": 3,
   "health": 300,
   "liquidCapacity": 25,
@@ -23,9 +22,9 @@
     "amount": 2
   },
   "consumes": {
-    "power": 6,
-    "liquid": "cryofluid/0.4",
-    "items": ["titanium/1","铝/2"]
+    "power": 4,
+    "liquid": "slag/0.1",
+    "items": ["titanium/1","copper/2","铝/2"]
   },
   "drawer": {
     "type": "DrawMulti",
@@ -36,16 +35,21 @@
       },
       {
         "type": "DrawLiquidTile",
-        "drawLiquid": "cryofluid"
+        "drawLiquid": "slag"
       },
       "DrawDefault",
       {
         "type": "DrawGlowRegion",
-        "alpha": 0.7,
-        "glowScale": 4,
+        "alpha": 0.9,
+        "glowScale": 3.1415926,
         "color": "EB564BFF"
       },
-      "DrawFlame"
+      {
+        "type": "DrawFade",
+        "suffix": "-glow1",
+        "alpha": 0.6,
+        "scale": 5
+      }
     ]
   },
   "category": "crafting",
