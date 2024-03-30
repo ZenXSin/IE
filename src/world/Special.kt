@@ -19,6 +19,7 @@ fun 基础空区() {
     }
 }
 fun 电浆流() {
+    Blocks.arc
     Vars.world.tiles.eachTile {
         val block = it.block()
         if (it.build != null && it.build.liquids != null) {
@@ -31,11 +32,3 @@ fun 电浆流() {
         }
     }
 }
-/*
-fun test() {
-    var a = object : Floor("") {
-        override fun renderUpdate(tile: UpdateRenderState?) {
-            super.renderUpdate(tile)
-        }
-    }
-}*/
