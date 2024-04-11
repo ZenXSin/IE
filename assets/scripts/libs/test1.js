@@ -1,37 +1,27 @@
-const 范围 = 10;
-const block = extend(GenericCrafter, "name", {});
-//改上面就行
-function 向量长度(x, y) {
-    return Math.sqrt(x * x + y * y);
-}
+const 伤害 = 10;
 
-function getblock(x, y) {
-    let ret = []
-    const 辅助块 = Vars.content.getByName(ContentType.block, "modname-blockname");
-    Vars.world.tiles.eachTile(function (tile) {
-        if (向量长度(tile.x, tile.y) <= 范围 && tile.block() === 辅助块) {
-            ret.push(向量长度(tile.x, tile.y));
-        }
-    })
-    return ret;
-}
-
-function signa(tick, input, run, ret = 0) {
-    for (let i = 0; i < tick; i++) {
-        input = run(input,i);
-        ret += input;
-    }
-}
-
-function getbonus(x, y, t = getblock(x, y)) {
-    return 1 + signa(t, 1, (input,tick) => 2 / t);
-}
-
-block.buildType = prov(() => {
-    return extend(GenericCrafter.GenericCrafterBuild, block, {
+const 聚爆压缩硅炉 = extend(HeatProducer, "聚爆压缩硅炉", {});
+聚爆压缩硅炉.buildType = prov(() => {
+    return extend(HeatProducer.HeatProducerBuild, 聚爆压缩硅炉, {
         updateTile() {
-            const boots = getbonus(this.tile.x, this.tile.y)
-            this.applyBoost(boots, boots)
+            if (!enabled) this.progress = 0;
+        }, craft() {
+            this.super$craft();
+            火焰(this.tile.x, this.tile.y);
+        }
+    });
+});
+
+function 火焰(x, y) {
+    Vars.world.tiles.eachTile(function (tile) {
+        if (向量长度(x, tile.x, y, tile.y) <= 6) {
+            if (tile.build.health <= 伤害) {
+                tile.build.health -= 3;
+            }
         }
     })
-});
+}
+
+function 向量长度(x, x1, y, y1) {
+    return Math.sqrt(x * x1 + y * y1);
+}

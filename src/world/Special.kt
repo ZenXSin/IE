@@ -3,6 +3,7 @@ package world
 import mindustry.Vars
 import mindustry.content.Blocks
 import mindustry.ctype.ContentType
+import mindustry.net.ServerGroup
 import mindustry.world.blocks.environment.Floor
 import mindustry.world.blocks.liquid.Conduit
 import mindustry.world.blocks.liquid.LiquidBridge
@@ -19,7 +20,6 @@ fun 基础空区() {
     }
 }
 fun 电浆流() {
-    Blocks.arc
     Vars.world.tiles.eachTile {
         val block = it.block()
         if (it.build != null && it.build.liquids != null) {

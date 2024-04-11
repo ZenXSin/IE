@@ -1,4 +1,5 @@
 //by zxs(转载勿删
+let tilemini = [];
 
 let auto = 0;
 const draw = extend(DrawBlock, {
@@ -32,12 +33,9 @@ const 小型应急发电机 = extend(GenericCrafter, "小型应急发电机", {
         this.super$setBars();
         this.removeBar("power")
         this.addBar("发电", entity => new Bar(
-            () => {
-                print((entity.power.graph.getLastCapacity() < auto && entity.liquids.get(Vars.content.liquid("ie-电浆流")) > 1990))
-                return ""
-            }/*) ? "5.4k" : "-30k"*/,
+            () => 0,
             () => Pal.powerBar,
-            () => (entity.power.graph.getLastCapacity() < auto && entity.liquids.get(Vars.content.liquid("ie-电浆流")) > 1990) ? 1 : 0
+            () => 0
         ));
     }
 });//express
@@ -48,6 +46,7 @@ const 小型应急发电机 = extend(GenericCrafter, "小型应急发电机", {
     let autoopen = auto;
     let start = false;
     let prepare = false;
+    this.start = start
     return extend(GenericCrafter.GenericCrafterBuild, 小型应急发电机, {
         buildConfiguration(table) {
             this.super$buildConfiguration(table);
@@ -63,6 +62,7 @@ const 小型应急发电机 = extend(GenericCrafter, "小型应急发电机", {
         },
         updateTile() {
             this.super$updateTile();
+            his.start = start
             if (this.liquids.get(Vars.content.liquid("ie-电浆流")) > 1990) prepare = true;
             if (!start) this.block.liquidFilter[Vars.content.liquid("ie-电浆流").id] = true; else this.block.liquidFilter[Vars.content.liquid("ie-电浆流").id] = false;
             if (this.power.graph.getLastCapacity() < auto && prepare) start = true;

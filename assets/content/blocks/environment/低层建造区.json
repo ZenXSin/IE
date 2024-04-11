@@ -1,9 +1,0 @@
-{
-  "name": "低层建造区",
-  "description": "用于放置低层建筑，需放置在基础空区上",
-  "supportsOverlay": true,
-  "category": "effect"
-  /*"requirements": [
-    "钢化铝/2"
-  ]*/
-}
