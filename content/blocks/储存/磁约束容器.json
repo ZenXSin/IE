@@ -1,0 +1,47 @@
+{
+    "type": "LiquidRouter",
+    "name": "磁约束容器",
+    "description": "将流体约束在内部，自带修复立场，自带储能电池，需要通电使用",
+    "size": 4,
+    "health": 2000,
+    "liquidCapacity": 4000,
+    "absorbLasers": true,
+    "conductivePower": true,
+    "hasPower": true,
+    "outputsPower": true,
+    "consumes": {
+        "power": 1.5
+    },
+    "displayFlow": true,
+    "placeableLiquid": true,
+    "destroyBullet": {
+        "type": "PointBulletType",
+        "hitShake": 2,
+        "splashDamageRadius": 25,
+        "splashDamage": 30,
+        "status": "unmoving",
+        "statusDuration": 30,
+        "speed": 0,
+        "lifetime": 2,
+        "collides": false,
+        "despawnEffect": {
+            "type": "WaveEffect",
+            "lifetime": 10,
+            "sizeFrom": 0,
+            "sizeTo": 30,
+            "strokeFrom": 3,
+            "strokeTo": 0,
+            "colorFrom": "ffffff",
+            "colorTo": "ffffff"
+        },
+        "hitEffect": "none"
+    },
+    "requirements": [
+        "精炼铝/180",
+        "titanium/180",
+        "surge-alloy/150",
+        "metaglass/150"
+    ],
+    "category": "liquid",
+    "research": "liquid-tank"
+}

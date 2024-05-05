@@ -1,0 +1,79 @@
+{
+    "type": "ItemTurret",
+    "name": "远程电磁轨道炮",
+    "description": "大型电磁炮，提供强大的远程火力支援",
+    "health": 2000,
+    "armor": 10,
+    "size": 4,
+    "reload": 60,
+    "range": 3000,
+    "maxAmmo": 10,
+    "recoil": 2,
+    "recoilTime": 100,
+    "cooldownTime": 400,
+    "minWarmup": 0.90,
+    "consumes": {
+        "power": 30,
+        "liquid": {
+            "liquid": "cryofluid",
+            "amount": 6
+        }
+    },
+    "ammoTypes": {
+        "精炼铝": {
+            "type": "BasicBulletType",
+            "ammoMultiplier": 1,
+            "speed": 180,
+            "lifetime": 10,
+            "width": 15,
+            "height": 45,
+            "damage": 8000,
+            "pierce": true,
+            "pierceBuilding": true,
+            "trailChance": 1,
+            "trailInterval": 24,
+            "trailEffect": {
+                "type": "WaveEffect",
+                "lifetime": 20,
+                "sizeFrom": 3,
+                "sizeTo": 80,
+                "strokeFrom": 3,
+                "strokeTo": 0,
+                "colorFrom": "ffffff",
+                "colorTo": "ffffff"
+            },
+            "hitSound": "shotgun",
+            "shootEffect": {
+                "type": "WaveEffect",
+                "lifetime": 15,
+                "sizeFrom": 0,
+                "sizeTo": 200,
+                "strokeFrom": 3,
+                "strokeTo": 0,
+                "colorFrom": "FFFFFF",
+                "colorTo": "ffffff"
+            },
+            "hitEffect": "instHit",
+            "despawnEffect": "none"
+        }
+    },
+    /*"requirements": [
+        "graphite/45"
+    ],*/
+    "drawer": {
+        "type": "DrawTurret",
+        "parts": [
+            {
+                "type": "RegionPart",
+                "mirror": true,
+                "x": 0,
+                "y": 0,
+                "suffix": "-管子",
+                "layer": 60,
+                "moveX": -3,
+                "moveY": 10
+            }
+        ]
+    },
+    "category": "turret"
+}

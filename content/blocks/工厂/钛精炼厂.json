@@ -1,0 +1,45 @@
+{
+  "type": "GenericCrafter",
+  "health": 360,
+  "name": "钛精炼厂",
+  "description": "将钛精炼成精炼钛",
+  "outputItem": {
+    "item": "精炼钛",
+    "amount": 1
+  },
+  "itemCapacity": 10,
+  "size": 2,
+  "hasPower": true,
+  "hasLiquids": false,
+  "hasItems": true,
+  "craftTime": 50,
+  "consumes": {
+    "power": 1,
+    "items": [
+      "titanium/1",
+      "coal/2"
+    ]
+  },
+  "drawer": {
+    "type": "DrawMulti",
+    "drawers": [
+      "DrawDefault",
+      "DrawFlame",
+      {
+        "type": "DrawGlowRegion",
+        "alpha": 0.4,
+        "glowScale": 6,
+        "color": "0041FFFF"
+      }
+    ]
+  },
+  "requirements": [
+    "copper/40",
+    "silicon/30",
+    "铝/30"
+  ],
+  "updateEffect": "melting",//更新/随机特效
+  "craftEffect": "smeltsmoke",//工作特效
+  "category": "crafting",
+  "research": "铜精炼厂"
+}

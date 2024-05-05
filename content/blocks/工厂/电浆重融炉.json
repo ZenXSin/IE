@@ -1,0 +1,36 @@
+{
+    "name": "电浆重融炉",
+    "description": "利用电浆重融提纯金属",
+    "size": 4,
+    "itemCapacity": 50,
+    "craftTime": 60,
+    "requirements": [
+    "thorium/70",
+    "silicon/80",
+    "plastanium/60",
+    "精炼铝/80",
+    "精炼钛/90",
+  ],
+    "consumes": {
+        "power": 20,
+        "liquids": [
+            "电浆流/1"
+        ]
+    },
+    "drawer": {
+        "type": "DrawMulti",
+        "drawers": [
+            "DrawDefault",
+            "DrawFlame",
+            {
+                "type": "DrawGlowRegion",
+                "alpha": 0.9,
+                "glowScale": 6,
+                "color": "FF0000FF"
+            }
+        ]
+    },
+    "updateEffect": "melting",
+    "category": "crafting",
+    "research": "surge-smelter"
+}

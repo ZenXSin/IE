@@ -1,0 +1,13 @@
+{
+  "name": "精炼铝",
+  "explosiveness": 0,
+  "flammability": 0,
+  "radioactivity": 0,
+  "charge": 0.2,
+  "hardness": 0.6,
+  "cost": 1,
+  "buildable": true,
+  "hidden": false,
+  "color": "CACEE4FF"
+  "research": "铝"
+}

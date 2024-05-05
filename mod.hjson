@@ -1,10 +1,24 @@
 
-    name: "IE",
-    displayName: "工业拓展",
-    author: "ZenXSin",
-    description: "都是js与kotlin狠活，感谢@pnk mod 的贴图",
-    version: 0.8 BETA,
+    name: "IE"
+    displayName: "工业拓展"
+    author: "ZenXSin"
+    description: "
+    ======使用语言======
+    *JavaScript
+    ======配置文件======
+    *Json
+    ======制作名单======
+    -- 贴图
+    *⌬⌬苏泽
+    *QVC9954887
+    *ZenXSin
+    -- 代码
+    *ZenXSin
+    -- 其他
+    *炽热S
+    *无量级萌新重构工厂
+    *卡洛
+    "
+    version: 0.8 正式版
     repo: "ZenXSin/IE"
     minGameVersion: 146,
-    main:Ie,
-    kotlin: true 

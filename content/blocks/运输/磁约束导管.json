@@ -1,0 +1,49 @@
+{
+  "name": "磁约束导管",
+  "description": "将流体约束在内部，更快，更安全。自带修复立场，需要通电使用",
+  "health": 220,
+  "size": 1,
+  "update": true,
+  "noUpdateDisabled": false,
+  "liquidCapacity": 30,
+  "liquidPressure": 3,
+  "conductivePower": true,
+  "hasPower": true,
+  "outputsPower": true,
+  "consumes": {
+    "power": 0.1
+  },
+  "absorbLasers": true,
+  "displayFlow": true,
+  "placeableLiquid": true,
+  "destroyBullet": {
+    "type": "PointBulletType",
+    "hitShake": 2,
+    "splashDamageRadius": 25,
+    "splashDamage": 30,
+    "status": "unmoving",
+    "statusDuration": 30,
+    "speed": 0,
+    "lifetime": 2,
+    "collides": false,
+    "despawnEffect": {
+      "type": "WaveEffect",
+      "lifetime": 10,
+      "sizeFrom": 0,
+      "sizeTo": 30,
+      "strokeFrom": 3,
+      "strokeTo": 0,
+      "colorFrom": "ffffff",
+      "colorTo": "ffffff"
+    },
+    "hitEffect": "none"
+  },
+  "requirements": [
+    "精炼钛/2",
+    "精炼铝/2",
+    "metaglass/2"
+  ],
+  "bridgeReplacement": "phase-conduit",
+  "category": "liquid",
+  "research": "plated-conduit"
+}
