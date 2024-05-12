@@ -1,0 +1,14 @@
+{
+	"name": "精铜墙",
+	"type": "Wall",
+	"health": 2500,
+	"armor":14,
+	"size": 2,
+	"absorbLasers":true,
+	"requirements": [
+		"精炼铜/30"
+	],
+	"buildCostMultiplier": 0.65,
+	"category": "defense",
+	"research": "copper"
+}

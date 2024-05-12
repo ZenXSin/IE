@@ -55,12 +55,13 @@ const 电浆转存器 = extend(GenericCrafter, "电浆转存器", {
         this.addBar("效率", entity => new Bar(() => "效率", () => Color.red, () => getIR(entity.tile.x, entity.tile.y)[4] / 4));
     }, setStats() {
         this.super$setStats();
-        this.stats.add(new Stat("建造", new StatCat("建造")), table => {
+        this.stats.add(new Stat("建造", new StatCat("建造")), function (table) {
             table.add("需建造在反应堆边上");
             table.add(Image(Blocks.impactReactor.uiIcon)
                 .setScaling(Scaling.fit))
                 .size(30);
             table.row();
+            return table;
         });
     }
 });

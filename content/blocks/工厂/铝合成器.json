@@ -1,0 +1,44 @@
+{
+  "type": "GenericCrafter",
+  "health": 360,
+  "name": "铝合成器",
+  "description": "使用铅和钛合成铝",
+  "outputItem": {
+    "item": "铝",
+    "amount": 1
+  },
+  "itemCapacity": 10,
+  "size": 2,
+  "hasPower": true,
+  "hasLiquids": false,
+  "hasItems": true,
+  "craftTime": 50,
+  "consumes": {
+    "power": 1,
+    "items": [
+      "titanium/1",
+      "lead/1"
+    ]
+  },
+  "drawer": {
+    "type": "DrawMulti",
+    "drawers": [
+      "DrawDefault",
+      "DrawFlame",
+      {
+        "type": "DrawGlowRegion",
+        "alpha": 0.6,
+        "glowScale": 6,
+        "color": "FF0000FF"
+      }
+    ]
+  },
+  "requirements": [
+    "copper/40",
+    "silicon/30",
+  ],
+  "updateEffect": "melting",//更新/随机特效
+  "craftEffect": "smeltsmoke",//工作特效
+  "category": "crafting",
+  "research": "铝精炼厂"
+}

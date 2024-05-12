@@ -1,0 +1,14 @@
+{
+	"name": "大型精铝墙",
+	"type": "Wall",
+	"health": 5000,
+	"armor":14,
+	"size": 3,
+	"absorbLasers":true,
+	"requirements": [
+		"精炼铝/100"
+	],
+	"buildCostMultiplier": 0.65,
+	"category": "defense",
+	"research": "精铝墙"
+}

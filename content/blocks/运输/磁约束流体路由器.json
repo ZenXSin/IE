@@ -14,5 +14,7 @@
         "精炼钛/2",
         "精炼铝/2",
         "metaglass/2"
-    ]
+    ],
+    "research": "liquid-router",
+    "category": "liquid"
 }
