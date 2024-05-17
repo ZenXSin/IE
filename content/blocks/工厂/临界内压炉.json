@@ -1,63 +1,63 @@
 {
-  "type": "GenericCrafter",
-  "health": 660,
-  "name": "临界内压炉",
-  "description": "将爆炸混合物在高压环境下点燃，使其在临界值内燃烧。更快的提纯硅",
-  "outputItem": {
-    "item": "silicon",
-    "amount": 10
-  },
-  "itemCapacity": 40,
-  "size": 4,
-  "craftEffect": {
-    "type": "MultiEffect",
-    "effects": [
-      {
-        "type": "RadialEffect",
-        "effect": "surgeCruciSmoke",
-        "rotationSpacing": 45,
-        "amount": 9,
-        "lengthOffset": 6
-      }
-    ]
-  },
-  "hasPower": true,
-  "hasLiquids": false,
-  "hasItems": true,
-  "craftTime": 30,
-  "consumes": {
-    "power": 10,
-    "items": [
-      "blast-compound/1",
-      "sand/10"
-    ]
-  },
-  "drawer": {
-    "type": "DrawMulti",
-    "drawers": [
-      "DrawDefault",
-      {
-        "type": "DrawGlowRegion",
-        "alpha": 0.9,
-        "glowScale": 3.1415926,
-        "color": "FF0000FF"
-      },
-      {
-        "type": "DrawGlowRegion",
-        "suffix": "-glow1",
-        "alpha": 0.9,
-        "glowScale": 3.1415926,
-        "color": "EB564BFF"
-      },
-    ]
-  },
-  "requirements": [
-    "thorium/70",
-    "silicon/80",
-    "plastanium/50",
-    "精炼铝/50",
-    "精炼钛/50",
-  ],
-  "category": "crafting",
-  "research": "silicon-crucible"
+    "type": "GenericCrafter",
+    "health": 660,
+    "name": "临界内压炉",
+    "description": "将爆炸混合物在高压环境下点燃，使其在临界值内燃烧。更快的提纯硅",
+    "outputItem": {
+        "item": "silicon",
+        "amount": 10
+    },
+    "itemCapacity": 40,
+    "size": 4,
+    "craftEffect": {
+        "type": "MultiEffect",
+        "effects": [
+            {
+                "type": "RadialEffect",
+                "effect": "surgeCruciSmoke",
+                "rotationSpacing": 45,
+                "amount": 9,
+                "lengthOffset": 6
+            }
+        ]
+    },
+    "hasPower": true,
+    "hasLiquids": false,
+    "hasItems": true,
+    "craftTime": 30,
+    "consumes": {
+        "power": 10,
+        "items": [
+            "blast-compound/1",
+            "sand/10"
+        ]
+    },
+    "drawer": {
+        "type": "DrawMulti",
+        "drawers": [
+            "DrawDefault",
+            {
+                "type": "DrawGlowRegion",
+                "alpha": 0.9,
+                "glowScale": 3.1415926,
+                "color": "FF0000FF"
+            },
+            {
+                "type": "DrawGlowRegion",
+                "suffix": "-glow1",
+                "alpha": 0.9,
+                "glowScale": 3.1415926,
+                "color": "EB564BFF"
+            }
+        ]
+    },
+    "requirements": [
+        "thorium/70",
+        "silicon/80",
+        "plastanium/50",
+        "精炼铝/50",
+        "精炼钛/50"
+    ],
+    "category": "crafting",
+    "research": "silicon-crucible"
 }

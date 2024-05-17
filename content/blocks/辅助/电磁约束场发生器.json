@@ -10,7 +10,7 @@
             {
                 "type": "DrawFade",
                 "suffix": "-glow",
-                "alpha": 0.6,
+                "alpha": 0.4,
                 "scale": 12
             }
         ]
@@ -28,5 +28,5 @@
         "精炼铝/15"
     ],
     "category": "effect",
-    "research": "force-projector"
+    "research": "电磁力"
 }
