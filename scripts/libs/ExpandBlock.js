@@ -1,4 +1,4 @@
-function ExpandBlock(type, name) {
+function ExpandBlock(name) {
     this.optimize = false; //优化方案: true为同时处理所有任务，false为分步处理任务
     this.timeTask = []; //[time,run]定时任务
     this.task = [];
@@ -15,7 +15,7 @@ function ExpandBlock(type, name) {
             if (this.timeTask[i][0] > max) max = this.timeTask[i][0];
         }
     }
-    this.block = extend(type, name, {});
+    this.block = extend(GenericCrafter, name, {});
     this.block.buildType = prov(() => {
         let tps = 0;
         let tps1 = 0;
@@ -41,5 +41,8 @@ function ExpandBlock(type, name) {
             }
         });
     });
-    return this;
 }
+
+const a = new ExpandBlock("a")
+a.optimize = true;
+a.timeTask = [50,function(b) {print("a");}];
