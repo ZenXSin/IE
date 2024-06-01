@@ -4,7 +4,7 @@
 	"health": 360,
 	"outputLiquid": {
 		"liquid": "电浆流",
-		"amount": 0.4
+		"amount": 0.2
 	},
 	"size": 3,
 	"drawer": {

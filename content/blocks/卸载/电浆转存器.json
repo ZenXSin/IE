@@ -81,19 +81,17 @@
     "requirements": [
         "silicon/80",
         "graphite/60",
-        "精炼铜/120",
-        "phase-fabric/60",
         "surge-alloy/120",
         "metaglass/40",
         "精炼铝/80"
     ],
     "outputLiquid": {
         "liquid": "电浆流",
-        "amount": 0.5
+        "amount": 0.7
     },
     "consumes": {
-        "power": 16.6666666667,
-        "liquid": "cryofluid/0.6"
+        "power": 5,
+        "liquid": "cryofluid/0.4"
     },
     "drawer": {
         "type": "DrawMulti",
