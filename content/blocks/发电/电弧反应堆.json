@@ -1,0 +1,64 @@
+{
+    "type": "ImpactReactor",
+    "name": "电弧反应堆",
+    "size": 5,
+    "health": 8000,
+    "hasLiquids": true,
+    "hasItems": true,
+    "warmupSpeed": 0.001,
+    "squareSprite": false,
+    "rebuildable": false,
+    "outputsPower": true,
+    "powerProduction": 1000,
+    "explosionShakeDuration": 500,
+    "explosionRadius": 600,
+    "explosionDamage": 8000,
+    "explodeSound": "explosionbig",
+    "itemDuration": 3000,
+    "itemCapacity": 40,
+    "liquidCapacity": 60,
+    "drawer": {
+        "type": "DrawMulti",
+        "drawers": [
+            {
+                "type": "DrawRegion",
+                "suffix": "-bottom"
+            },
+            {
+                "type": "DrawPlasma",
+                "plasma1": "c0ecff",
+                "plasma2": "c0ecff"
+            },
+            "DrawDefault"
+        ]
+    },
+    "generateEffect": "generatespark",
+    "consumes": {
+        "power": 80,
+        "items": {
+            "items": [
+                "电磁约束场发生器模块/1"
+            ]
+        },
+        "liquid": {
+            "liquid": "电浆流",
+            "amount": 2
+        }
+    },
+    "requirements": [
+        "metaglass/200",
+        "thorium/200",
+        "surge-alloy/350",
+        "电磁约束场发生器模块/50",
+        "精炼铝/200",
+        "精炼铜/200",
+        "精炼钛/200",
+        "graphite/400",
+        "silicon/400"
+    ],
+    "buildCostMultiplier": 0.88,
+    "ambientSound": "techloop",
+    "ambientSoundVolume": 0.5,
+    "category": "power",
+    "research": "应急发电机"
+}

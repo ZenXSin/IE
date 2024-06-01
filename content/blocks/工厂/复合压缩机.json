@@ -1,0 +1,36 @@
+{
+    "type": "GenericCrafter",
+    "health": 480,
+    "name": "复合压缩机",
+    "description": "采用复合压缩技术压缩石墨",
+    "outputItem": {
+        "item": "graphite",
+        "amount": 5
+    },
+    "itemCapacity": 40,
+    "size": 4,
+    "hasPower": true,
+    "hasLiquids": false,
+    "hasItems": true,
+    "craftTime": 35,
+    "consumes": {
+        "power": 5,
+        "items": [
+            "coal/5"
+        ],
+        "liquids": [
+            "water/0.5"
+        ]
+    },
+    "requirements": [
+        "copper/120",
+        "silicon/200",
+        "精炼铝/180",
+        "thorium/120"
+        
+    ],
+    "updateEffect": "pulverizeMedium",
+    "craftEffect": "steam",
+    "category": "crafting",
+    "research": "multi-press"
+}

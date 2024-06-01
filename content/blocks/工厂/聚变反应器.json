@@ -1,0 +1,46 @@
+{
+	"type": "GenericCrafter",
+	"name": "聚变反应器",
+	"health": 360,
+	"outputLiquid": {
+		"liquid": "电浆流",
+		"amount": 0.4
+	},
+	"size": 3,
+	"drawer": {
+		"type": "DrawMulti",
+		"drawers": [
+			{
+				"type": "DrawRegion",
+				"suffix": "-bottom"
+			},
+			{
+				"type": "DrawLiquidTile",
+				"drawLiquid": "电浆流"
+			},
+			"DrawDefault"
+		]
+	},
+	"hasLiquids": true,
+	"outputsLiquid": true,
+	"hasPower": true,
+	"liquidCapacity": 50,
+	"craftTime": 60,
+	"updateEffect": "freezing",
+	"consumes": {
+		"power": 4,
+		"items": [
+			"thorium/1",
+			"phase-fabric/1"
+		],
+		"liquid": "cryofluid/0.4"
+	},
+	"requirements": [
+		"精炼钛/80",
+		"metaglass/60",
+		"silicon/60",
+		"精炼铝/100",
+	],
+	"category": "crafting",
+	"research": "cryofluid-mixer"
+}
