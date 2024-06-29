@@ -1,21 +1,22 @@
 {
     "type": "GenericCrafter",
-    "name": "大型塑钢压缩机",
-    "outputItem": "plastanium/4",
+    "name": "热熔玻璃厂",
+    "outputItem": "metaglass/5",
     "size": 3,
     "hasPower": true,
     "hasLiquids": true,
     "hasItems": true,
-    "craftTime": 60,
+    "craftTime": 40,
     "itemCapacity": 20,
     "liquidCapacity": 40,
-    "craftEffect": "formsmoke",
+    "craftEffect": "smeltsmoke",
     "updateEffect": "plasticburn",
     "consumes": {
         "power": 7,
-        "liquid": "oil/0.5",
+        "liquid": "slag/0.4",
         "items": [
-            "titanium/5"
+            "lead/4",
+            "sand/4"
         ]
     },
     "drawer": {
@@ -25,19 +26,19 @@
                 "type": "DrawRegion",
                 "suffix": "-bottom"
             },
-            "DrawDefault",
             {
-                "type": "DrawFade",
-                "scale": 2
-            }
+                "type": "DrawLiquidTile",
+                "drawLiquid": "slag"
+            },
+            "DrawDefault",
+            "DrawFlame"
         ]
     },
     "requirements": [
-        "graphite/100",
         "thorium/80",
-        "plastanium/50",
-        "精炼铝/90"
+        "silicon/80",
+        "metaglass/100"
     ],
     "category": "crafting",
-    "research": "plastanium-compressor"
+    "research": "kiln"
 }

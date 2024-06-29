@@ -1,1 +1,0 @@
-const 试车平台 = extend(GenericCrafter, "试车平台", {});

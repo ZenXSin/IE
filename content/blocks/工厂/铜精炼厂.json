@@ -35,8 +35,7 @@
   },
   "requirements": [
     "copper/40",
-    "silicon/30",
-    "铝/30"
+    "silicon/30"
   ],
   "updateEffect": "melting",//更新/随机特效
   "craftEffect": "smeltsmoke",//工作特效

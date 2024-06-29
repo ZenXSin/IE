@@ -1,0 +1,63 @@
+{
+    "type": "GenericCrafter",
+    "name": "高能编织器",
+    "outputItem": {
+        "item": "phase-fabric",
+        "amount": 40
+    },
+    "itemCapacity": 80,
+    "size": 4,
+    "updateEffect": {
+        "type": "WaveEffect",
+        "lifetime": 30,
+        "sizeFrom": 0,
+        "sizeTo": 10,
+        "strokeFrom": 6,
+        "strokeTo": 0,
+        "colorFrom": "FFF1D2",
+        "colorTo": "FFD197"
+    },
+    "drawer": {
+        "type": "DrawMulti",
+        "drawers": [
+            {
+                "type": "DrawGlowRegion",
+                "alpha": 0.9,
+                "glowScale": 3.53429173,
+                "color": "FF0000FF"
+            },
+            {
+                "type": "DrawRegion",
+                "suffix": "-bottom"
+            },
+            "DrawWeave",
+            "DrawDefault",
+            {
+                "type": "DrawFade",
+                "scale": 8
+            }
+        ]
+    },
+    "craftTime": 480,
+    "consumes": {
+        "power": 20,
+        "items": {
+            "items": [
+                "sand/40",
+                "玻尔体/4"
+            ]
+        }
+    },
+    "requirements": [
+        "silicon/165",
+        "metaglass/200",
+        "spore-pod/200",
+        "surge-alloy/200",
+        "玻尔体/120",
+        "精炼铝/200",
+        "精炼钛/200",
+    ],
+    "ambientSound": "techloop",
+    "ambientSoundVolume": 0.56,
+    "category": "crafting"
+}
